@@ -1,0 +1,57 @@
+# Evrensel CRM & OpenCC - Stratejik Tavsiyeler ve Yol Haritası
+
+Yapılan incelemeler sonucunda, projenin sadece teknik bir CRM güncellemesi değil, **"Sektör Bağımsız Bir SaaS Platformu"** olma yolunda ilerlediği görülmüştür. Aşağıdaki tavsiyeler bu vizyonu destekleyecek şekilde 3 ana başlıkta toplanmıştır.
+
+## 1. Stratejik Vizyon (2026 ve Ötesi)
+
+Bu özellikler, Evrensel CRM'i rakiplerinden ayıran "Blue Ocean" stratejileridir.
+
+*   **Sınırsız Hiyerarşi (Infinite Tree) Mimarisi:**
+    *   **Tavsiye:** Sistemin en temel "User/Team" yapısını, `Node` bazlı (Parent-Child) recursive bir yapıya dönüştürün.
+    *   **Fayda:** Bayiler kendi alt bayilerini, onlar da kendi satış temsilcilerini oluşturabilir. Her düğüm (node) kendi içinde izole bir CRM gibi çalışır.
+*   **Agentic AI (Otonom Ajanlar):**
+    *   **Tavsiye:** Sadece "Chatbot" değil, iş yapan ajanlar entegre edin. Örn: "Stok azaldığında otomatik sipariş taslağı oluşturan ajan" veya "Teklif onay süresi geçince uyaran ajan".
+    *   **Fayda:** Operasyonel yükü %40 azaltır.
+*   **Dinamik Veri Gizliliği (Privacy Shield):**
+    *   **Tavsiye:** Veri erişimini role değil, ağaçtaki konuma ve ilişki türüne göre dinamik belirleyin.
+    *   **Fayda:** GDPR/KVKK uyumluluğu ve ticari sırların korunması (Bayi A, Bayi B'nin fiyatını göremez).
+
+## 2. Teknik Altyapı ve Borçlar (Hemen Yapılması Gerekenler)
+
+Raporda belirtilen teknik eksikliklerin üretime geçmeden önce giderilmesi kritiktir.
+
+*   **Veritabanı Dönüşümü (SQLite -> PostgreSQL):**
+    *   **Durum:** Şu an SQLite kullanılıyor.
+    *   **Tavsiye:** Hemen PostgreSQL'e geçilmeli. "Sınırsız Hiyerarşi" için `LTREE` eklentisi veya `Recursive CTE` sorguları gerekecek. SQLite bunu ölçekleyemez.
+*   **Validasyon ve Güvenlik:**
+    *   **Durum:** API validasyonu eksik.
+    *   **Tavsiye:** Tüm API route'larına `Zod` ile şema kontrolü (Request Body Validation) ekleyin.
+*   **Type Safety (TypeScript):**
+    *   **Durum:** Proje JavaScript.
+    *   **Tavsiye:** Yeni modüller kesinlikle TypeScript ile yazılmalı. Mevcut kritik modüller (Auth, Billing) kademeli olarak TS'e çevrilmeli.
+
+## 3. Entegrasyon Fırsatı: OpenCC & Evrensel CRM (Kritik Kavşak)
+
+[REQUIREMENTS.md](file:///Users/emre/Desktop/%C3%87a%C4%9Fr%C4%B1%20merkezi%20/docs/REQUIREMENTS.md) dosyasındaki P0 maddeleri, iki projenin birleşmesi gerektiğini gösteriyor.
+
+*   **Tekilleştirilmiş Kimlik (Unified Auth):**
+    *   **Tespit:** OpenCC `AUTH-001` ve Evrensel CRM kendi auth sistemine sahip.
+    *   **Tavsiye:** Tek bir **OAuth2 / OIDC** sunucusu (veya Evrensel CRM'in Auth yapısı) master kabul edilmeli. Çağrı merkezi ajanları, CRM şifreleri ile softphone'a giriş yapmalı.
+*   **Veritabanı Paylaşımı (Shared Customer DB):**
+    *   **Tespit:** OpenCC `CST-001` (Müşteri CRUD) ile CRM `Lead` yapısı mükerrer.
+    *   **Tavsiye:** OpenCC'nin `Customers` tablosu iptal edilmeli. Asterisk/OpenCC, sorgularını doğrudan Evrensel CRM'in PostgreSQL veritabanındaki `Lead` veya `Customer` tablolarına atmalıdır.
+*   **Screen Pop Entegrasyonu:**
+    *   **Tavsiye:** `POP-002` (Popup) gereksinimi için, OpenCC backend'i çağrı geldiğinde CRM'in frontend'ine WebSocket eventi göndermeli ve CRM içinde bir `Floating Modal` açılmalıdır.
+
+## 4. Eksik Görülen Noktalar (Dikkat)
+
+*   **SSL/TLS Sertifikası:** `NF-07` gereği WebRTC için HTTPS şart. Lokal geliştirmede `mkcert` veya benzeri bir yapı kurulmazsa ses iletimi çalışmayacaktır.
+*   **Redis Bağımlılığı:** `NF-05` için Redis yapılandırmasının Docker Compose'da persistent volume ile saklanması gerekir.
+
+## Özet Yol Haritası
+
+1.  **Hafta 1-2:** Altyapıyı Güçlendir (PostgreSQL geçişi + Zod Validasyonu).
+2.  **Hafta 3-4:** OpenCC Entegrasyonu (Arama yapma ve karşılama).
+3.  **Hafta 5+:** SaaS Vizyonu (Sınırsız ağaç yapısı ve yetki mekanizması).
+
+Bu strateji, projeyi standart bir CRM'den, kendi pazarını yaratan bir ekosisteme dönüştürecektir.

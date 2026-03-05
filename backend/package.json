@@ -1,0 +1,47 @@
+{
+  "name": "opencc-backend",
+  "version": "1.0.0",
+  "description": "OpenCC Call Center Backend",
+  "main": "src/index.js",
+  "type": "module",
+  "scripts": {
+    "start": "tsx src/index.ts",
+    "dev": "tsx watch src/index.ts",
+    "build": "tsc",
+    "start:js": "node src/index.js",
+    "seed": "node scripts/seed.js",
+    "migrate": "node scripts/migrate.js",
+    "worker": "tsx src/workers/transcriptionWorker.ts",
+    "worker:prod": "node dist/workers/transcriptionWorker.js"
+  },
+  "dependencies": {
+    "asterisk-manager": "^0.1.16",
+    "bcryptjs": "^2.4.3",
+    "bullmq": "^5.34.8",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "express-rate-limit": "^8.2.1",
+    "ioredis": "^5.4.2",
+    "jsonwebtoken": "^9.0.2",
+    "multer": "^2.0.2",
+    "openai": "^4.73.0",
+    "pg": "^8.11.3",
+    "socket.io": "^4.7.2",
+    "uuid": "^9.0.1",
+    "xlsx": "^0.18.5",
+    "zod": "^4.3.6"
+  },
+  "devDependencies": {
+    "@types/bcryptjs": "^2.4.6",
+    "@types/cors": "^2.8.17",
+    "@types/express": "^4.17.21",
+    "@types/jsonwebtoken": "^9.0.7",
+    "@types/multer": "^2.0.0",
+    "@types/node": "^22.10.1",
+    "@types/pg": "^8.16.0",
+    "@types/uuid": "^10.0.0",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2"
+  }
+}

@@ -1,0 +1,70 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e3]:
+  - banner [ref=e4]:
+    - generic [ref=e5]:
+      - button [ref=e6] [cursor=pointer]:
+        - img [ref=e7]
+      - heading "OpenCC" [level=6] [ref=e9]
+      - paragraph [ref=e10]: admin (1000)
+      - button [ref=e11] [cursor=pointer]:
+        - img [ref=e12]
+  - list [ref=e16]:
+    - button "Dashboard" [ref=e17] [cursor=pointer]:
+      - img [ref=e19]
+      - generic [ref=e22]: Dashboard
+    - button "Müşteriler" [ref=e23] [cursor=pointer]:
+      - img [ref=e25]
+      - generic [ref=e28]: Müşteriler
+    - button "Preview Dialer" [ref=e29] [cursor=pointer]:
+      - img [ref=e31]
+      - generic [ref=e34]: Preview Dialer
+    - button "Wallboard" [ref=e35] [cursor=pointer]:
+      - img [ref=e37]
+      - generic [ref=e40]: Wallboard
+    - button "Raporlar" [ref=e41] [cursor=pointer]:
+      - img [ref=e43]
+      - generic [ref=e46]: Raporlar
+    - button "Kuyruklar" [ref=e47] [cursor=pointer]:
+      - img [ref=e49]
+      - generic [ref=e52]: Kuyruklar
+    - button "Scriptler" [ref=e53] [cursor=pointer]:
+      - img [ref=e55]
+      - generic [ref=e58]: Scriptler
+    - button "Aktif Çağrılar" [ref=e59] [cursor=pointer]:
+      - img [ref=e61]
+      - generic [ref=e64]: Aktif Çağrılar
+    - button "Kullanıcılar" [ref=e65] [cursor=pointer]:
+      - img [ref=e67]
+      - generic [ref=e70]: Kullanıcılar
+    - button "Kampanyalar" [ref=e71] [cursor=pointer]:
+      - img [ref=e73]
+      - generic [ref=e76]: Kampanyalar
+    - button "Ayarlar" [ref=e77] [cursor=pointer]:
+      - img [ref=e79]
+      - generic [ref=e82]: Ayarlar
+  - main [ref=e83]:
+    - generic [ref=e84]:
+      - generic [ref=e85]:
+        - heading "Scriptler (Tahsilat Metinleri)" [level=5] [ref=e86]
+        - button "Yeni Script" [ref=e87] [cursor=pointer]:
+          - img [ref=e89]
+          - text: Yeni Script
+      - paragraph [ref=e91]: "Placeholder'lar: {{first_name}}, {{last_name}}, {{debt_amount}}, {{file_number}}"
+      - table [ref=e93]:
+        - rowgroup [ref=e94]:
+          - row "Ad Varsayılan İşlem" [ref=e95]:
+            - columnheader "Ad" [ref=e96]
+            - columnheader "Varsayılan" [ref=e97]
+            - columnheader "İşlem" [ref=e98]
+        - rowgroup [ref=e99]:
+          - row "Varsayılan Tahsilat Evet" [ref=e100]:
+            - cell "Varsayılan Tahsilat" [ref=e101]
+            - cell "Evet" [ref=e102]
+            - cell [ref=e103]:
+              - button [ref=e104] [cursor=pointer]:
+                - img [ref=e105]
+              - button [ref=e107] [cursor=pointer]:
+                - img [ref=e108]
+```

@@ -1,0 +1,10 @@
+node_modules/
+dist/
+.env
+.env.local
+/.vscode/
+/.idea/
+recordings/
+asterisk_config/keys/
+postgres_data/
+redis_data/

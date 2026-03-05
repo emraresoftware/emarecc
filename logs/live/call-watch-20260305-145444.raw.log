@@ -1,0 +1,442 @@
+web-1  | 2026-03-05T11:54:20.324413482Z 149.34.200.122 - - [05/Mar/2026:11:54:20 +0000] "GET /api/v1/calls/active HTTP/1.1" 304 0 "https://localhost:3783/active-calls" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36" "-"
+asterisk-1  | 2026-03-05T11:53:45.153563586Z [2026-03-05 11:53:45] [0;33mNOTICE[30m[41]: [0;30mres_pjsip/pjsip_distributor.c[30m:[0;30m688[30m [0;30mlog_failed_request[30m: Request 'REGISTER' from '"P2P" <sip:127.0.0.1@192.168.1.64>' failed for '149.34.200.122:49860' (callid: 1994695676@192.168.1.100) - No matching endpoint found
+asterisk-1  | 2026-03-05T11:53:45.153591153Z [2026-03-05 11:53:45] [0;33mNOTICE[30m[41]: [0;30mres_pjsip/pjsip_distributor.c[30m:[0;30m688[30m [0;30mlog_failed_request[30m: Request 'REGISTER' from '"P2P" <sip:127.0.0.1@192.168.1.64>' failed for '149.34.200.122:49860' (callid: 1994695676@192.168.1.100) - Failed to authenticate
+asterisk-1  | 2026-03-05T11:53:45.263472426Z [2026-03-05 11:53:45] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:53:45.265454879Z [2026-03-05 11:53:45] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:53:51.603130473Z [2026-03-05 11:53:51] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:53:51.606131780Z [2026-03-05 11:53:51] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:53:52.575410651Z [2026-03-05 11:53:52] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:53:52.575542822Z [2026-03-05 11:53:52] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:53:52.586084489Z [2026-03-05 11:53:52] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:53:52.586245557Z [2026-03-05 11:53:52] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:53:52.597226069Z [2026-03-05 11:53:52] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:53:52.597287402Z [2026-03-05 11:53:52] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:53:52.607434627Z [2026-03-05 11:53:52] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:53:52.608260372Z [2026-03-05 11:53:52] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:53:52.618086771Z [2026-03-05 11:53:52] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:53:52.619191329Z [2026-03-05 11:53:52] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:53:52.628419866Z [2026-03-05 11:53:52] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:53:52.629310080Z [2026-03-05 11:53:52] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:53:52.638472554Z [2026-03-05 11:53:52] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:53:52.640341278Z [2026-03-05 11:53:52] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:53:55.172725593Z [2026-03-05 11:53:55] [0;33mNOTICE[30m[41]: [0;30mres_pjsip/pjsip_distributor.c[30m:[0;30m688[30m [0;30mlog_failed_request[30m: Request 'REGISTER' from '"P2P" <sip:127.0.0.1@192.168.1.64>' failed for '149.34.200.122:49860' (callid: 1994695676@192.168.1.100) - No matching endpoint found
+asterisk-1  | 2026-03-05T11:53:55.172755089Z [2026-03-05 11:53:55] [0;33mNOTICE[30m[41]: [0;30mres_pjsip/pjsip_distributor.c[30m:[0;30m688[30m [0;30mlog_failed_request[30m: Request 'REGISTER' from '"P2P" <sip:127.0.0.1@192.168.1.64>' failed for '149.34.200.122:49860' (callid: 1994695676@192.168.1.100) - Failed to authenticate
+asterisk-1  | 2026-03-05T11:53:57.862828886Z [2026-03-05 11:53:57] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:53:57.863750370Z [2026-03-05 11:53:57] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:54:04.087620918Z [2026-03-05 11:54:04] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:54:04.088733164Z [2026-03-05 11:54:04] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:54:05.183101972Z [2026-03-05 11:54:05] [0;33mNOTICE[30m[41]: [0;30mres_pjsip/pjsip_distributor.c[30m:[0;30m688[30m [0;30mlog_failed_request[30m: Request 'REGISTER' from '"P2P" <sip:127.0.0.1@192.168.1.64>' failed for '149.34.200.122:49860' (callid: 1994695676@192.168.1.100) - No matching endpoint found
+asterisk-1  | 2026-03-05T11:54:05.183135043Z [2026-03-05 11:54:05] [0;33mNOTICE[30m[41]: [0;30mres_pjsip/pjsip_distributor.c[30m:[0;30m688[30m [0;30mlog_failed_request[30m: Request 'REGISTER' from '"P2P" <sip:127.0.0.1@192.168.1.64>' failed for '149.34.200.122:49860' (callid: 1994695676@192.168.1.100) - Failed to authenticate
+asterisk-1  | 2026-03-05T11:54:10.345126104Z [2026-03-05 11:54:10] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:54:10.346226101Z [2026-03-05 11:54:10] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:54:15.203015100Z [2026-03-05 11:54:15] [0;33mNOTICE[30m[41]: [0;30mres_pjsip/pjsip_distributor.c[30m:[0;30m688[30m [0;30mlog_failed_request[30m: Request 'REGISTER' from '"P2P" <sip:127.0.0.1@192.168.1.64>' failed for '149.34.200.122:49860' (callid: 1994695676@192.168.1.100) - No matching endpoint found
+asterisk-1  | 2026-03-05T11:54:15.203538723Z [2026-03-05 11:54:15] [0;33mNOTICE[30m[41]: [0;30mres_pjsip/pjsip_distributor.c[30m:[0;30m688[30m [0;30mlog_failed_request[30m: Request 'REGISTER' from '"P2P" <sip:127.0.0.1@192.168.1.64>' failed for '149.34.200.122:49860' (callid: 1994695676@192.168.1.100) - Failed to authenticate
+asterisk-1  | 2026-03-05T11:54:16.577367202Z [2026-03-05 11:54:16] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:54:16.578743316Z [2026-03-05 11:54:16] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:54:22.720737228Z [2026-03-05 11:54:22] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:54:22.721018272Z [2026-03-05 11:54:22] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:54:22.730897587Z [2026-03-05 11:54:22] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:54:22.731331961Z [2026-03-05 11:54:22] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:54:22.745306810Z [2026-03-05 11:54:22] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:54:22.745827151Z [2026-03-05 11:54:22] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:54:22.756862897Z [2026-03-05 11:54:22] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:54:22.758055239Z [2026-03-05 11:54:22] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:54:22.769460162Z [2026-03-05 11:54:22] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:54:22.770743565Z [2026-03-05 11:54:22] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:54:22.781057454Z [2026-03-05 11:54:22] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:54:22.781964616Z [2026-03-05 11:54:22] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:54:22.792537949Z [2026-03-05 11:54:22] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:54:22.793699534Z [2026-03-05 11:54:22] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:54:22.822645421Z [2026-03-05 11:54:22] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:54:22.824420811Z [2026-03-05 11:54:22] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:54:25.257554493Z [2026-03-05 11:54:25] [0;33mNOTICE[30m[41]: [0;30mres_pjsip/pjsip_distributor.c[30m:[0;30m688[30m [0;30mlog_failed_request[30m: Request 'REGISTER' from '"P2P" <sip:127.0.0.1@192.168.1.64>' failed for '149.34.200.122:49860' (callid: 1994695676@192.168.1.100) - No matching endpoint found
+asterisk-1  | 2026-03-05T11:54:25.257589106Z [2026-03-05 11:54:25] [0;33mNOTICE[30m[41]: [0;30mres_pjsip/pjsip_distributor.c[30m:[0;30m688[30m [0;30mlog_failed_request[30m: Request 'REGISTER' from '"P2P" <sip:127.0.0.1@192.168.1.64>' failed for '149.34.200.122:49860' (callid: 1994695676@192.168.1.100) - Failed to authenticate
+asterisk-1  | 2026-03-05T11:54:29.114099597Z [2026-03-05 11:54:29] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:54:29.115229427Z [2026-03-05 11:54:29] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:54:35.302673285Z [2026-03-05 11:54:35] [0;33mNOTICE[30m[41]: [0;30mres_pjsip/pjsip_distributor.c[30m:[0;30m688[30m [0;30mlog_failed_request[30m: Request 'REGISTER' from '"P2P" <sip:127.0.0.1@192.168.1.64>' failed for '149.34.200.122:49860' (callid: 1994695676@192.168.1.100) - No matching endpoint found
+asterisk-1  | 2026-03-05T11:54:35.303088628Z [2026-03-05 11:54:35] [0;33mNOTICE[30m[41]: [0;30mres_pjsip/pjsip_distributor.c[30m:[0;30m688[30m [0;30mlog_failed_request[30m: Request 'REGISTER' from '"P2P" <sip:127.0.0.1@192.168.1.64>' failed for '149.34.200.122:49860' (callid: 1994695676@192.168.1.100) - Failed to authenticate
+asterisk-1  | 2026-03-05T11:54:35.385020418Z [2026-03-05 11:54:35] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:54:35.386630938Z [2026-03-05 11:54:35] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:54:41.625683890Z [2026-03-05 11:54:41] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:54:41.626967848Z [2026-03-05 11:54:41] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:54:44.959661236Z [2026-03-05 11:54:44] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:54:44.959681505Z [2026-03-05 11:54:44] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:54:45.313669469Z [2026-03-05 11:54:45] [0;33mNOTICE[30m[41]: [0;30mres_pjsip/pjsip_distributor.c[30m:[0;30m688[30m [0;30mlog_failed_request[30m: Request 'REGISTER' from '"P2P" <sip:127.0.0.1@192.168.1.64>' failed for '149.34.200.122:49860' (callid: 1994695676@192.168.1.100) - No matching endpoint found
+asterisk-1  | 2026-03-05T11:54:45.313808354Z [2026-03-05 11:54:45] [0;33mNOTICE[30m[41]: [0;30mres_pjsip/pjsip_distributor.c[30m:[0;30m688[30m [0;30mlog_failed_request[30m: Request 'REGISTER' from '"P2P" <sip:127.0.0.1@192.168.1.64>' failed for '149.34.200.122:49860' (callid: 1994695676@192.168.1.100) - Failed to authenticate
+asterisk-1  | 2026-03-05T11:54:47.877373618Z [2026-03-05 11:54:47] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:54:47.878994851Z [2026-03-05 11:54:47] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:54:48.609017439Z [2026-03-05 11:54:48] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:54:48.609184824Z [2026-03-05 11:54:48] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:54:52.072627828Z [2026-03-05 11:54:52] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:54:52.072678792Z [2026-03-05 11:54:52] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:54:52.887700977Z [2026-03-05 11:54:52] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:54:52.887838983Z [2026-03-05 11:54:52] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:54:52.898809963Z [2026-03-05 11:54:52] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:54:52.898832874Z [2026-03-05 11:54:52] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:54:52.909380254Z [2026-03-05 11:54:52] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:54:52.909677909Z [2026-03-05 11:54:52] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:54:52.921072034Z [2026-03-05 11:54:52] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:54:52.922372976Z [2026-03-05 11:54:52] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:54:52.933413585Z [2026-03-05 11:54:52] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:54:52.934453137Z [2026-03-05 11:54:52] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:54:52.947325144Z [2026-03-05 11:54:52] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:54:52.948338575Z [2026-03-05 11:54:52] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:54:52.959529873Z [2026-03-05 11:54:52] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:54:52.960858641Z [2026-03-05 11:54:52] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:54:54.129914935Z [2026-03-05 11:54:54] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:54:54.132679528Z [2026-03-05 11:54:54] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:54:55.364805778Z [2026-03-05 11:54:55] [0;33mNOTICE[30m[41]: [0;30mres_pjsip/pjsip_distributor.c[30m:[0;30m688[30m [0;30mlog_failed_request[30m: Request 'REGISTER' from '"P2P" <sip:127.0.0.1@192.168.1.64>' failed for '149.34.200.122:49860' (callid: 1994695676@192.168.1.100) - No matching endpoint found
+asterisk-1  | 2026-03-05T11:54:55.364867636Z [2026-03-05 11:54:55] [0;33mNOTICE[30m[41]: [0;30mres_pjsip/pjsip_distributor.c[30m:[0;30m688[30m [0;30mlog_failed_request[30m: Request 'REGISTER' from '"P2P" <sip:127.0.0.1@192.168.1.64>' failed for '149.34.200.122:49860' (callid: 1994695676@192.168.1.100) - Failed to authenticate
+asterisk-1  | 2026-03-05T11:54:55.651125053Z [2026-03-05 11:54:55] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:54:55.651324501Z [2026-03-05 11:54:55] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:54:59.124748595Z [2026-03-05 11:54:59] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:54:59.124771037Z [2026-03-05 11:54:59] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:55:00.372318163Z [2026-03-05 11:55:00] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:55:00.373519849Z [2026-03-05 11:55:00] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:55:02.590124731Z [2026-03-05 11:55:02] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:55:02.590200833Z [2026-03-05 11:55:02] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:55:05.382982305Z [2026-03-05 11:55:05] [0;33mNOTICE[30m[41]: [0;30mres_pjsip/pjsip_distributor.c[30m:[0;30m688[30m [0;30mlog_failed_request[30m: Request 'REGISTER' from '"P2P" <sip:127.0.0.1@192.168.1.64>' failed for '149.34.200.122:49860' (callid: 1994695676@192.168.1.100) - No matching endpoint found
+asterisk-1  | 2026-03-05T11:55:05.383007088Z [2026-03-05 11:55:05] [0;33mNOTICE[30m[41]: [0;30mres_pjsip/pjsip_distributor.c[30m:[0;30m688[30m [0;30mlog_failed_request[30m: Request 'REGISTER' from '"P2P" <sip:127.0.0.1@192.168.1.64>' failed for '149.34.200.122:49860' (callid: 1994695676@192.168.1.100) - Failed to authenticate
+asterisk-1  | 2026-03-05T11:55:06.051718426Z [2026-03-05 11:55:06] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:55:06.051841879Z [2026-03-05 11:55:06] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:55:06.689310402Z [2026-03-05 11:55:06] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:55:06.690702420Z [2026-03-05 11:55:06] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:55:09.554284508Z [2026-03-05 11:55:09] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:55:09.554310311Z [2026-03-05 11:55:09] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:55:12.938868893Z [2026-03-05 11:55:12] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:55:12.941789446Z [2026-03-05 11:55:12] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:55:13.044828819Z [2026-03-05 11:55:13] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:55:13.044905253Z [2026-03-05 11:55:13] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:55:15.462986657Z [2026-03-05 11:55:15] [0;33mNOTICE[30m[41]: [0;30mres_pjsip/pjsip_distributor.c[30m:[0;30m688[30m [0;30mlog_failed_request[30m: Request 'REGISTER' from '"P2P" <sip:127.0.0.1@192.168.1.64>' failed for '149.34.200.122:49860' (callid: 1994695676@192.168.1.100) - No matching endpoint found
+asterisk-1  | 2026-03-05T11:55:15.463894111Z [2026-03-05 11:55:15] [0;33mNOTICE[30m[41]: [0;30mres_pjsip/pjsip_distributor.c[30m:[0;30m688[30m [0;30mlog_failed_request[30m: Request 'REGISTER' from '"P2P" <sip:127.0.0.1@192.168.1.64>' failed for '149.34.200.122:49860' (callid: 1994695676@192.168.1.100) - Failed to authenticate
+asterisk-1  | 2026-03-05T11:55:16.546570986Z [2026-03-05 11:55:16] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:55:16.546608331Z [2026-03-05 11:55:16] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:55:19.193804632Z [2026-03-05 11:55:19] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:55:19.195039904Z [2026-03-05 11:55:19] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:55:20.018764523Z [2026-03-05 11:55:20] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:55:20.018878374Z [2026-03-05 11:55:20] [0;30m    -- [30mRemote UNIX connection disconnected
+web-1       | 2026-03-05T11:55:20.322481674Z 149.34.200.122 - - [05/Mar/2026:11:55:20 +0000] "GET /api/v1/calls/active HTTP/1.1" 304 0 "https://localhost:3783/active-calls" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36" "-"
+asterisk-1  | 2026-03-05T11:55:23.046802265Z [2026-03-05 11:55:23] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:55:23.047040262Z [2026-03-05 11:55:23] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:55:23.058590699Z [2026-03-05 11:55:23] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:55:23.058772175Z [2026-03-05 11:55:23] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:55:23.070156877Z [2026-03-05 11:55:23] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:55:23.070525774Z [2026-03-05 11:55:23] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:55:23.083954775Z [2026-03-05 11:55:23] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:55:23.085454007Z [2026-03-05 11:55:23] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:55:23.096738476Z [2026-03-05 11:55:23] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:55:23.097882539Z [2026-03-05 11:55:23] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:55:23.108777578Z [2026-03-05 11:55:23] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:55:23.109883318Z [2026-03-05 11:55:23] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:55:23.120352388Z [2026-03-05 11:55:23] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:55:23.121735153Z [2026-03-05 11:55:23] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:55:23.640081051Z [2026-03-05 11:55:23] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:55:23.640101717Z [2026-03-05 11:55:23] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:55:25.465263022Z [2026-03-05 11:55:25] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:55:25.466468360Z [2026-03-05 11:55:25] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:55:25.475398164Z [2026-03-05 11:55:25] [0;33mNOTICE[30m[41]: [0;30mres_pjsip/pjsip_distributor.c[30m:[0;30m688[30m [0;30mlog_failed_request[30m: Request 'REGISTER' from '"P2P" <sip:127.0.0.1@192.168.1.64>' failed for '149.34.200.122:49860' (callid: 1994695676@192.168.1.100) - No matching endpoint found
+asterisk-1  | 2026-03-05T11:55:25.475423193Z [2026-03-05 11:55:25] [0;33mNOTICE[30m[41]: [0;30mres_pjsip/pjsip_distributor.c[30m:[0;30m688[30m [0;30mlog_failed_request[30m: Request 'REGISTER' from '"P2P" <sip:127.0.0.1@192.168.1.64>' failed for '149.34.200.122:49860' (callid: 1994695676@192.168.1.100) - Failed to authenticate
+asterisk-1  | 2026-03-05T11:55:27.081950501Z [2026-03-05 11:55:27] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:55:27.082010844Z [2026-03-05 11:55:27] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:55:30.485007410Z [2026-03-05 11:55:30] [0;30m    -- [30mCalled 1001
+asterisk-1  | 2026-03-05T11:55:30.493574895Z [2026-03-05 11:55:30] [0;30m    -- [30mPJSIP/1001-0000004b is ringing
+asterisk-1  | 2026-03-05T11:55:30.564953590Z [2026-03-05 11:55:30] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:55:30.565013895Z [2026-03-05 11:55:30] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:55:31.708215221Z [2026-03-05 11:55:31] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:55:31.709690627Z [2026-03-05 11:55:31] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:55:32.019973244Z [2026-03-05 11:55:32] [0;30m    -- [30mPJSIP/1001-0000004b answered
+asterisk-1  | 2026-03-05T11:55:32.020179895Z [2026-03-05 11:55:32] [0;30m    -- [30mExecuting [905327804227@from-internal:1] [0;34mNoOp[30m("[0;31mPJSIP/1001-0000004b[30m", "[0;31mDis arama: 05327804227[30m") in new stack
+asterisk-1  | 2026-03-05T11:55:32.020280045Z [2026-03-05 11:55:32] [0;30m    -- [30mExecuting [905327804227@from-internal:2] [0;34mSet[30m("[0;31mPJSIP/1001-0000004b[30m", "[0;31mDST=05327804227[30m") in new stack
+asterisk-1  | 2026-03-05T11:55:32.020637359Z [2026-03-05 11:55:32] [0;30m    -- [30mExecuting [905327804227@from-internal:3] [0;34mExecIf[30m("[0;31mPJSIP/1001-0000004b[30m", "[0;31m0?Set(DST=005327804227)[30m") in new stack
+asterisk-1  | 2026-03-05T11:55:32.021505893Z [2026-03-05 11:55:32] [0;30m    -- [30mExecuting [905327804227@from-internal:4] [0;34mExecIf[30m("[0;31mPJSIP/1001-0000004b[30m", "[0;31m0?Set(DST=0327804227)[30m") in new stack
+asterisk-1  | 2026-03-05T11:55:32.021675581Z [2026-03-05 11:55:32] [0;30m    -- [30mExecuting [905327804227@from-internal:5] [0;34mNoOp[30m("[0;31mPJSIP/1001-0000004b[30m", "[0;31mFCT normalize hedef: 05327804227[30m") in new stack
+asterisk-1  | 2026-03-05T11:55:32.021685763Z [2026-03-05 11:55:32] [0;30m    -- [30mExecuting [905327804227@from-internal:6] [0;34mDial[30m("[0;31mPJSIP/1001-0000004b[30m", "[0;31mPJSIP/fct-trunk/sip:05327804227@192.168.1.100:5060,30[30m") in new stack
+asterisk-1  | 2026-03-05T11:55:32.024016764Z [2026-03-05 11:55:32] [0;30m    -- [30mCalled PJSIP/fct-trunk/sip:05327804227@192.168.1.100:5060
+web-1       | 2026-03-05T11:55:32.028299164Z 149.34.200.122 - - [05/Mar/2026:11:55:32 +0000] "POST /api/v1/calls/initiate HTTP/1.1" 201 507 "https://192.168.1.64:3783/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36" "-"
+asterisk-1  | 2026-03-05T11:55:32.083829174Z [2026-03-05 11:55:32] [0;30m    -- [30mPJSIP/1001-0000004b requested media update control 26, passing it to PJSIP/fct-trunk-0000004c
+asterisk-1  | 2026-03-05T11:55:34.192348296Z [2026-03-05 11:55:34] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:55:34.192836417Z [2026-03-05 11:55:34] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:55:35.494499994Z [2026-03-05 11:55:35] [0;33mNOTICE[30m[41]: [0;30mres_pjsip/pjsip_distributor.c[30m:[0;30m688[30m [0;30mlog_failed_request[30m: Request 'REGISTER' from '"P2P" <sip:127.0.0.1@192.168.1.64>' failed for '149.34.200.122:49860' (callid: 1994695676@192.168.1.100) - No matching endpoint found
+asterisk-1  | 2026-03-05T11:55:35.494750830Z [2026-03-05 11:55:35] [0;33mNOTICE[30m[41]: [0;30mres_pjsip/pjsip_distributor.c[30m:[0;30m688[30m [0;30mlog_failed_request[30m: Request 'REGISTER' from '"P2P" <sip:127.0.0.1@192.168.1.64>' failed for '149.34.200.122:49860' (callid: 1994695676@192.168.1.100) - Failed to authenticate
+asterisk-1  | 2026-03-05T11:55:37.693225366Z [2026-03-05 11:55:37] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:55:37.693326063Z [2026-03-05 11:55:37] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:55:37.946550321Z [2026-03-05 11:55:37] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:55:37.948015748Z [2026-03-05 11:55:37] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:55:41.145366762Z [2026-03-05 11:55:41] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:55:41.145395199Z [2026-03-05 11:55:41] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:55:44.174187923Z [2026-03-05 11:55:44] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:55:44.175503646Z [2026-03-05 11:55:44] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:55:44.659651267Z [2026-03-05 11:55:44] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:55:44.659743546Z [2026-03-05 11:55:44] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:55:45.504892225Z [2026-03-05 11:55:45] [0;33mNOTICE[30m[41]: [0;30mres_pjsip/pjsip_distributor.c[30m:[0;30m688[30m [0;30mlog_failed_request[30m: Request 'REGISTER' from '"P2P" <sip:127.0.0.1@192.168.1.64>' failed for '149.34.200.122:49860' (callid: 1994695676@192.168.1.100) - No matching endpoint found
+asterisk-1  | 2026-03-05T11:55:45.505002894Z [2026-03-05 11:55:45] [0;33mNOTICE[30m[41]: [0;30mres_pjsip/pjsip_distributor.c[30m:[0;30m688[30m [0;30mlog_failed_request[30m: Request 'REGISTER' from '"P2P" <sip:127.0.0.1@192.168.1.64>' failed for '149.34.200.122:49860' (callid: 1994695676@192.168.1.100) - Failed to authenticate
+asterisk-1  | 2026-03-05T11:55:48.234590524Z [2026-03-05 11:55:48] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:55:48.235000302Z [2026-03-05 11:55:48] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:55:50.437836401Z [2026-03-05 11:55:50] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:55:50.439282436Z [2026-03-05 11:55:50] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:55:51.701328587Z [2026-03-05 11:55:51] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:55:51.701575850Z [2026-03-05 11:55:51] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:55:53.207184184Z [2026-03-05 11:55:53] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:55:53.207319258Z [2026-03-05 11:55:53] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:55:53.216751196Z [2026-03-05 11:55:53] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:55:53.216934567Z [2026-03-05 11:55:53] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:55:53.226913143Z [2026-03-05 11:55:53] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:55:53.227185407Z [2026-03-05 11:55:53] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:55:53.236966460Z [2026-03-05 11:55:53] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:55:53.237963674Z [2026-03-05 11:55:53] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:55:53.248251019Z [2026-03-05 11:55:53] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:55:53.249118584Z [2026-03-05 11:55:53] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:55:53.259078563Z [2026-03-05 11:55:53] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:55:53.260229487Z [2026-03-05 11:55:53] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:55:53.270311138Z [2026-03-05 11:55:53] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:55:53.271403189Z [2026-03-05 11:55:53] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:55:55.158964175Z [2026-03-05 11:55:55] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:55:55.159048291Z [2026-03-05 11:55:55] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:55:55.524809559Z [2026-03-05 11:55:55] [0;33mNOTICE[30m[41]: [0;30mres_pjsip/pjsip_distributor.c[30m:[0;30m688[30m [0;30mlog_failed_request[30m: Request 'REGISTER' from '"P2P" <sip:127.0.0.1@192.168.1.64>' failed for '149.34.200.122:49860' (callid: 1994695676@192.168.1.100) - No matching endpoint found
+asterisk-1  | 2026-03-05T11:55:55.525091359Z [2026-03-05 11:55:55] [0;33mNOTICE[30m[41]: [0;30mres_pjsip/pjsip_distributor.c[30m:[0;30m688[30m [0;30mlog_failed_request[30m: Request 'REGISTER' from '"P2P" <sip:127.0.0.1@192.168.1.64>' failed for '149.34.200.122:49860' (callid: 1994695676@192.168.1.100) - Failed to authenticate
+asterisk-1  | 2026-03-05T11:55:56.655691195Z [2026-03-05 11:55:56] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:55:56.658239680Z [2026-03-05 11:55:56] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:55:58.634803797Z [2026-03-05 11:55:58] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:55:58.635045678Z [2026-03-05 11:55:58] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:56:02.025001310Z [2026-03-05 11:56:02] [0;30m    -- [30mNobody picked up in 30000 ms
+asterisk-1  | 2026-03-05T11:56:02.025141336Z [2026-03-05 11:56:02] [0;30m    -- [30mExecuting [905327804227@from-internal:7] [0;34mHangup[30m("[0;31mPJSIP/1001-0000004b[30m", "[0;31m[30m") in new stack
+asterisk-1  | 2026-03-05T11:56:02.025155875Z [2026-03-05 11:56:02] [0;30m  == [30mSpawn extension (from-internal, 905327804227, 7) exited non-zero on 'PJSIP/1001-0000004b'
+asterisk-1  | 2026-03-05T11:56:02.068239164Z [2026-03-05 11:56:02] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:56:02.068316638Z [2026-03-05 11:56:02] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:56:02.896265365Z [2026-03-05 11:56:02] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:56:02.897373700Z [2026-03-05 11:56:02] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:56:05.501350911Z [2026-03-05 11:56:05] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:56:05.501373391Z [2026-03-05 11:56:05] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:56:05.535436376Z [2026-03-05 11:56:05] [0;33mNOTICE[30m[41]: [0;30mres_pjsip/pjsip_distributor.c[30m:[0;30m688[30m [0;30mlog_failed_request[30m: Request 'REGISTER' from '"P2P" <sip:127.0.0.1@192.168.1.64>' failed for '149.34.200.122:49860' (callid: 1994695676@192.168.1.100) - No matching endpoint found
+asterisk-1  | 2026-03-05T11:56:05.535454753Z [2026-03-05 11:56:05] [0;33mNOTICE[30m[41]: [0;30mres_pjsip/pjsip_distributor.c[30m:[0;30m688[30m [0;30mlog_failed_request[30m: Request 'REGISTER' from '"P2P" <sip:127.0.0.1@192.168.1.64>' failed for '149.34.200.122:49860' (callid: 1994695676@192.168.1.100) - Failed to authenticate
+web-1       | 2026-03-05T11:56:06.744552244Z 149.34.200.122 - - [05/Mar/2026:11:56:06 +0000] "POST /api/v1/calls/e08268a4-09aa-4d04-bd97-3915532a2c3a/hangup HTTP/1.1" 200 56 "https://192.168.1.64:3783/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36" "-"
+asterisk-1  | 2026-03-05T11:56:08.027698250Z [2026-03-05 11:56:08] [0;30m    -- [30mCalled 1001
+asterisk-1  | 2026-03-05T11:56:08.035959799Z [2026-03-05 11:56:08] [0;30m    -- [30mPJSIP/1001-0000004d is ringing
+asterisk-1  | 2026-03-05T11:56:09.013701125Z [2026-03-05 11:56:09] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:56:09.013905616Z [2026-03-05 11:56:09] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:56:09.165505057Z [2026-03-05 11:56:09] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:56:09.166557462Z [2026-03-05 11:56:09] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:56:10.126485231Z [2026-03-05 11:56:10] [0;30m    -- [30mPJSIP/1001-0000004d answered
+asterisk-1  | 2026-03-05T11:56:10.126510050Z [2026-03-05 11:56:10] [0;30m    -- [30mExecuting [905327804227@from-internal:1] [0;34mNoOp[30m("[0;31mPJSIP/1001-0000004d[30m", "[0;31mDis arama: 05327804227[30m") in new stack
+asterisk-1  | 2026-03-05T11:56:10.126827181Z [2026-03-05 11:56:10] [0;30m    -- [30mExecuting [905327804227@from-internal:2] [0;34mSet[30m("[0;31mPJSIP/1001-0000004d[30m", "[0;31mDST=05327804227[30m") in new stack
+asterisk-1  | 2026-03-05T11:56:10.127107298Z [2026-03-05 11:56:10] [0;30m    -- [30mExecuting [905327804227@from-internal:3] [0;34mExecIf[30m("[0;31mPJSIP/1001-0000004d[30m", "[0;31m0?Set(DST=005327804227)[30m") in new stack
+asterisk-1  | 2026-03-05T11:56:10.127203277Z [2026-03-05 11:56:10] [0;30m    -- [30mExecuting [905327804227@from-internal:4] [0;34mExecIf[30m("[0;31mPJSIP/1001-0000004d[30m", "[0;31m0?Set(DST=0327804227)[30m") in new stack
+asterisk-1  | 2026-03-05T11:56:10.127998874Z [2026-03-05 11:56:10] [0;30m    -- [30mExecuting [905327804227@from-internal:5] [0;34mNoOp[30m("[0;31mPJSIP/1001-0000004d[30m", "[0;31mFCT normalize hedef: 05327804227[30m") in new stack
+asterisk-1  | 2026-03-05T11:56:10.128085359Z [2026-03-05 11:56:10] [0;30m    -- [30mExecuting [905327804227@from-internal:6] [0;34mDial[30m("[0;31mPJSIP/1001-0000004d[30m", "[0;31mPJSIP/fct-trunk/sip:05327804227@192.168.1.100:5060,30[30m") in new stack
+asterisk-1  | 2026-03-05T11:56:10.130830805Z [2026-03-05 11:56:10] [0;30m    -- [30mCalled PJSIP/fct-trunk/sip:05327804227@192.168.1.100:5060
+web-1       | 2026-03-05T11:56:10.139193584Z 149.34.200.122 - - [05/Mar/2026:11:56:10 +0000] "POST /api/v1/calls/initiate HTTP/1.1" 201 507 "https://192.168.1.64:3783/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36" "-"
+asterisk-1  | 2026-03-05T11:56:10.161296213Z [2026-03-05 11:56:10] [0;30m    -- [30mPJSIP/1001-0000004d requested media update control 26, passing it to PJSIP/fct-trunk-0000004e
+asterisk-1  | 2026-03-05T11:56:12.452423729Z [2026-03-05 11:56:12] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:56:12.452482133Z [2026-03-05 11:56:12] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:56:15.399915843Z [2026-03-05 11:56:15] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:56:15.400984919Z [2026-03-05 11:56:15] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:56:15.553783455Z [2026-03-05 11:56:15] [0;33mNOTICE[30m[41]: [0;30mres_pjsip/pjsip_distributor.c[30m:[0;30m688[30m [0;30mlog_failed_request[30m: Request 'REGISTER' from '"P2P" <sip:127.0.0.1@192.168.1.64>' failed for '149.34.200.122:49860' (callid: 1994695676@192.168.1.100) - No matching endpoint found
+asterisk-1  | 2026-03-05T11:56:15.553807181Z [2026-03-05 11:56:15] [0;33mNOTICE[30m[41]: [0;30mres_pjsip/pjsip_distributor.c[30m:[0;30m688[30m [0;30mlog_failed_request[30m: Request 'REGISTER' from '"P2P" <sip:127.0.0.1@192.168.1.64>' failed for '149.34.200.122:49860' (callid: 1994695676@192.168.1.100) - Failed to authenticate
+asterisk-1  | 2026-03-05T11:56:15.888262516Z [2026-03-05 11:56:15] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:56:15.888283279Z [2026-03-05 11:56:15] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:56:19.484884755Z [2026-03-05 11:56:19] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:56:19.485025576Z [2026-03-05 11:56:19] [0;30m    -- [30mRemote UNIX connection disconnected
+web-1       | 2026-03-05T11:56:20.330626259Z 149.34.200.122 - - [05/Mar/2026:11:56:20 +0000] "GET /api/v1/calls/active HTTP/1.1" 200 535 "https://localhost:3783/active-calls" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36" "-"
+asterisk-1  | 2026-03-05T11:56:21.617025175Z [2026-03-05 11:56:21] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:56:21.618279580Z [2026-03-05 11:56:21] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:56:22.934355761Z [2026-03-05 11:56:22] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:56:22.934470233Z [2026-03-05 11:56:22] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:56:23.367121474Z [2026-03-05 11:56:23] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:56:23.367252181Z [2026-03-05 11:56:23] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:56:23.376735412Z [2026-03-05 11:56:23] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:56:23.376937066Z [2026-03-05 11:56:23] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:56:23.386733940Z [2026-03-05 11:56:23] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:56:23.386894017Z [2026-03-05 11:56:23] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:56:23.396955508Z [2026-03-05 11:56:23] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:56:23.397779397Z [2026-03-05 11:56:23] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:56:23.407638550Z [2026-03-05 11:56:23] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:56:23.408646420Z [2026-03-05 11:56:23] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:56:23.418484776Z [2026-03-05 11:56:23] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:56:23.419550266Z [2026-03-05 11:56:23] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:56:23.429849444Z [2026-03-05 11:56:23] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:56:23.431152623Z [2026-03-05 11:56:23] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:56:23.444047103Z [2026-03-05 11:56:23] [0;30m    -- [30mPJSIP/1001-0000004d requested media update control 26, passing it to PJSIP/fct-trunk-0000004e
+asterisk-1  | 2026-03-05T11:56:23.445227937Z [2026-03-05 11:56:23] [0;30m  == [30mSpawn extension (from-internal, 905327804227, 6) exited non-zero on 'PJSIP/1001-0000004d'
+web-1       | 2026-03-05T11:56:23.454313190Z 149.34.200.122 - - [05/Mar/2026:11:56:23 +0000] "POST /api/v1/calls/3641b3e3-f4c0-4542-930f-52c69cbd5df3/hangup HTTP/1.1" 200 56 "https://192.168.1.64:3783/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36" "-"
+asterisk-1  | 2026-03-05T11:56:25.565029126Z [2026-03-05 11:56:25] [0;33mNOTICE[30m[41]: [0;30mres_pjsip/pjsip_distributor.c[30m:[0;30m688[30m [0;30mlog_failed_request[30m: Request 'REGISTER' from '"P2P" <sip:127.0.0.1@192.168.1.64>' failed for '149.34.200.122:49860' (callid: 1994695676@192.168.1.100) - No matching endpoint found
+asterisk-1  | 2026-03-05T11:56:25.565232631Z [2026-03-05 11:56:25] [0;33mNOTICE[30m[41]: [0;30mres_pjsip/pjsip_distributor.c[30m:[0;30m688[30m [0;30mlog_failed_request[30m: Request 'REGISTER' from '"P2P" <sip:127.0.0.1@192.168.1.64>' failed for '149.34.200.122:49860' (callid: 1994695676@192.168.1.100) - Failed to authenticate
+asterisk-1  | 2026-03-05T11:56:26.544388400Z [2026-03-05 11:56:26] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:56:26.544595167Z [2026-03-05 11:56:26] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:56:27.845926835Z [2026-03-05 11:56:27] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:56:27.847148991Z [2026-03-05 11:56:27] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:56:29.010238683Z [2026-03-05 11:56:29] [0;30m    -- [30mCalled 1001
+asterisk-1  | 2026-03-05T11:56:29.017518969Z [2026-03-05 11:56:29] [0;30m    -- [30mPJSIP/1001-0000004f is ringing
+asterisk-1  | 2026-03-05T11:56:30.009642240Z [2026-03-05 11:56:30] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:56:30.009862999Z [2026-03-05 11:56:30] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:56:30.794224936Z [2026-03-05 11:56:30] [0;30m    -- [30mPJSIP/1001-0000004f answered
+asterisk-1  | 2026-03-05T11:56:30.794269289Z [2026-03-05 11:56:30] [0;30m    -- [30mExecuting [905327804227@from-internal:1] [0;34mNoOp[30m("[0;31mPJSIP/1001-0000004f[30m", "[0;31mDis arama: 05327804227[30m") in new stack
+asterisk-1  | 2026-03-05T11:56:30.794278255Z [2026-03-05 11:56:30] [0;30m    -- [30mExecuting [905327804227@from-internal:2] [0;34mSet[30m("[0;31mPJSIP/1001-0000004f[30m", "[0;31mDST=05327804227[30m") in new stack
+asterisk-1  | 2026-03-05T11:56:30.794304739Z [2026-03-05 11:56:30] [0;30m    -- [30mExecuting [905327804227@from-internal:3] [0;34mExecIf[30m("[0;31mPJSIP/1001-0000004f[30m", "[0;31m0?Set(DST=005327804227)[30m") in new stack
+asterisk-1  | 2026-03-05T11:56:30.794492573Z [2026-03-05 11:56:30] [0;30m    -- [30mExecuting [905327804227@from-internal:4] [0;34mExecIf[30m("[0;31mPJSIP/1001-0000004f[30m", "[0;31m0?Set(DST=0327804227)[30m") in new stack
+asterisk-1  | 2026-03-05T11:56:30.794822314Z [2026-03-05 11:56:30] [0;30m    -- [30mExecuting [905327804227@from-internal:5] [0;34mNoOp[30m("[0;31mPJSIP/1001-0000004f[30m", "[0;31mFCT normalize hedef: 05327804227[30m") in new stack
+asterisk-1  | 2026-03-05T11:56:30.794836360Z [2026-03-05 11:56:30] [0;30m    -- [30mExecuting [905327804227@from-internal:6] [0;34mDial[30m("[0;31mPJSIP/1001-0000004f[30m", "[0;31mPJSIP/fct-trunk/sip:05327804227@192.168.1.100:5060,30[30m") in new stack
+asterisk-1  | 2026-03-05T11:56:30.798452403Z [2026-03-05 11:56:30] [0;30m    -- [30mCalled PJSIP/fct-trunk/sip:05327804227@192.168.1.100:5060
+web-1       | 2026-03-05T11:56:30.804672221Z 149.34.200.122 - - [05/Mar/2026:11:56:30 +0000] "POST /api/v1/calls/initiate HTTP/1.1" 201 507 "https://192.168.1.64:3783/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36" "-"
+asterisk-1  | 2026-03-05T11:56:30.867561846Z [2026-03-05 11:56:30] [0;30m    -- [30mPJSIP/1001-0000004f requested media update control 26, passing it to PJSIP/fct-trunk-00000050
+asterisk-1  | 2026-03-05T11:56:33.453587883Z [2026-03-05 11:56:33] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:56:33.453651580Z [2026-03-05 11:56:33] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:56:34.064751513Z [2026-03-05 11:56:34] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:56:34.065927688Z [2026-03-05 11:56:34] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:56:35.578448985Z [2026-03-05 11:56:35] [0;33mNOTICE[30m[41]: [0;30mres_pjsip/pjsip_distributor.c[30m:[0;30m688[30m [0;30mlog_failed_request[30m: Request 'REGISTER' from '"P2P" <sip:127.0.0.1@192.168.1.64>' failed for '149.34.200.122:49860' (callid: 1994695676@192.168.1.100) - No matching endpoint found
+asterisk-1  | 2026-03-05T11:56:35.578479872Z [2026-03-05 11:56:35] [0;33mNOTICE[30m[41]: [0;30mres_pjsip/pjsip_distributor.c[30m:[0;30m688[30m [0;30mlog_failed_request[30m: Request 'REGISTER' from '"P2P" <sip:127.0.0.1@192.168.1.64>' failed for '149.34.200.122:49860' (callid: 1994695676@192.168.1.100) - Failed to authenticate
+asterisk-1  | 2026-03-05T11:56:36.880958483Z [2026-03-05 11:56:36] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:56:36.881105110Z [2026-03-05 11:56:36] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:56:40.350763266Z [2026-03-05 11:56:40] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:56:40.352568587Z [2026-03-05 11:56:40] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:56:40.420122479Z [2026-03-05 11:56:40] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:56:40.420446455Z [2026-03-05 11:56:40] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:56:41.901300144Z [2026-03-05 11:56:41] [0;30m    -- [30mPJSIP/1001-0000004f requested media update control 26, passing it to PJSIP/fct-trunk-00000050
+asterisk-1  | 2026-03-05T11:56:41.902080778Z [2026-03-05 11:56:41] [0;30m  == [30mSpawn extension (from-internal, 905327804227, 6) exited non-zero on 'PJSIP/1001-0000004f'
+web-1       | 2026-03-05T11:56:41.915693337Z 149.34.200.122 - - [05/Mar/2026:11:56:41 +0000] "POST /api/v1/calls/3641ac0f-55a7-42f6-928e-da7d72632ea8/hangup HTTP/1.1" 200 56 "https://192.168.1.64:3783/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36" "-"
+asterisk-1  | 2026-03-05T11:56:43.955115789Z [2026-03-05 11:56:43] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:56:43.955226082Z [2026-03-05 11:56:43] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:56:45.595417776Z [2026-03-05 11:56:45] [0;33mNOTICE[30m[41]: [0;30mres_pjsip/pjsip_distributor.c[30m:[0;30m688[30m [0;30mlog_failed_request[30m: Request 'REGISTER' from '"P2P" <sip:127.0.0.1@192.168.1.64>' failed for '149.34.200.122:49860' (callid: 1994695676@192.168.1.100) - No matching endpoint found
+asterisk-1  | 2026-03-05T11:56:45.595457287Z [2026-03-05 11:56:45] [0;33mNOTICE[30m[41]: [0;30mres_pjsip/pjsip_distributor.c[30m:[0;30m688[30m [0;30mlog_failed_request[30m: Request 'REGISTER' from '"P2P" <sip:127.0.0.1@192.168.1.64>' failed for '149.34.200.122:49860' (callid: 1994695676@192.168.1.100) - Failed to authenticate
+asterisk-1  | 2026-03-05T11:56:46.608553758Z [2026-03-05 11:56:46] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:56:46.611638864Z [2026-03-05 11:56:46] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:56:47.412245963Z [2026-03-05 11:56:47] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:56:47.412264974Z [2026-03-05 11:56:47] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:56:51.256654135Z [2026-03-05 11:56:51] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:56:51.256686759Z [2026-03-05 11:56:51] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:56:52.891688024Z [2026-03-05 11:56:52] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:56:52.893585528Z [2026-03-05 11:56:52] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:56:53.543934970Z [2026-03-05 11:56:53] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:56:53.544135711Z [2026-03-05 11:56:53] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:56:53.561083422Z [2026-03-05 11:56:53] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:56:53.561305153Z [2026-03-05 11:56:53] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:56:53.577066913Z [2026-03-05 11:56:53] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:56:53.577891595Z [2026-03-05 11:56:53] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:56:53.592666711Z [2026-03-05 11:56:53] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:56:53.594193512Z [2026-03-05 11:56:53] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:56:53.610561181Z [2026-03-05 11:56:53] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:56:53.612534016Z [2026-03-05 11:56:53] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:56:53.634587423Z [2026-03-05 11:56:53] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:56:53.636909083Z [2026-03-05 11:56:53] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:56:53.660356260Z [2026-03-05 11:56:53] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:56:53.662551611Z [2026-03-05 11:56:53] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:56:54.835500510Z [2026-03-05 11:56:54] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:56:54.835549066Z [2026-03-05 11:56:54] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:56:55.685931123Z [2026-03-05 11:56:55] [0;33mNOTICE[30m[41]: [0;30mres_pjsip/pjsip_distributor.c[30m:[0;30m688[30m [0;30mlog_failed_request[30m: Request 'REGISTER' from '"P2P" <sip:127.0.0.1@192.168.1.64>' failed for '149.34.200.122:49860' (callid: 1994695676@192.168.1.100) - No matching endpoint found
+asterisk-1  | 2026-03-05T11:56:55.686754705Z [2026-03-05 11:56:55] [0;33mNOTICE[30m[41]: [0;30mres_pjsip/pjsip_distributor.c[30m:[0;30m688[30m [0;30mlog_failed_request[30m: Request 'REGISTER' from '"P2P" <sip:127.0.0.1@192.168.1.64>' failed for '149.34.200.122:49860' (callid: 1994695676@192.168.1.100) - Failed to authenticate
+asterisk-1  | 2026-03-05T11:56:58.343177976Z [2026-03-05 11:56:58] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:56:58.343261615Z [2026-03-05 11:56:58] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:56:59.169114156Z [2026-03-05 11:56:59] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:56:59.171495279Z [2026-03-05 11:56:59] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:57:01.834096985Z [2026-03-05 11:57:01] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:57:01.834199657Z [2026-03-05 11:57:01] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:57:05.348934763Z [2026-03-05 11:57:05] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:57:05.349151967Z [2026-03-05 11:57:05] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:57:05.480558068Z [2026-03-05 11:57:05] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:57:05.481702001Z [2026-03-05 11:57:05] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:57:05.721689791Z [2026-03-05 11:57:05] [0;33mNOTICE[30m[41]: [0;30mres_pjsip/pjsip_distributor.c[30m:[0;30m688[30m [0;30mlog_failed_request[30m: Request 'REGISTER' from '"P2P" <sip:127.0.0.1@192.168.1.64>' failed for '149.34.200.122:49860' (callid: 1994695676@192.168.1.100) - No matching endpoint found
+asterisk-1  | 2026-03-05T11:57:05.721834199Z [2026-03-05 11:57:05] [0;33mNOTICE[30m[41]: [0;30mres_pjsip/pjsip_distributor.c[30m:[0;30m688[30m [0;30mlog_failed_request[30m: Request 'REGISTER' from '"P2P" <sip:127.0.0.1@192.168.1.64>' failed for '149.34.200.122:49860' (callid: 1994695676@192.168.1.100) - Failed to authenticate
+asterisk-1  | 2026-03-05T11:57:08.808016411Z [2026-03-05 11:57:08] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:57:08.808033678Z [2026-03-05 11:57:08] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:57:11.717855832Z [2026-03-05 11:57:11] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:57:11.718968633Z [2026-03-05 11:57:11] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:57:12.259185588Z [2026-03-05 11:57:12] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:57:12.259202839Z [2026-03-05 11:57:12] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:57:15.735552011Z [2026-03-05 11:57:15] [0;33mNOTICE[30m[41]: [0;30mres_pjsip/pjsip_distributor.c[30m:[0;30m688[30m [0;30mlog_failed_request[30m: Request 'REGISTER' from '"P2P" <sip:127.0.0.1@192.168.1.64>' failed for '149.34.200.122:49860' (callid: 1994695676@192.168.1.100) - No matching endpoint found
+asterisk-1  | 2026-03-05T11:57:15.735676379Z [2026-03-05 11:57:15] [0;33mNOTICE[30m[41]: [0;30mres_pjsip/pjsip_distributor.c[30m:[0;30m688[30m [0;30mlog_failed_request[30m: Request 'REGISTER' from '"P2P" <sip:127.0.0.1@192.168.1.64>' failed for '149.34.200.122:49860' (callid: 1994695676@192.168.1.100) - Failed to authenticate
+asterisk-1  | 2026-03-05T11:57:15.860500663Z [2026-03-05 11:57:15] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:57:15.860520181Z [2026-03-05 11:57:15] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:57:17.934265404Z [2026-03-05 11:57:17] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:57:17.935503412Z [2026-03-05 11:57:17] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:57:19.311419927Z [2026-03-05 11:57:19] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:57:19.311557994Z [2026-03-05 11:57:19] [0;30m    -- [30mRemote UNIX connection disconnected
+web-1       | 2026-03-05T11:57:20.327818149Z 149.34.200.122 - - [05/Mar/2026:11:57:20 +0000] "GET /api/v1/calls/active HTTP/1.1" 200 2 "https://localhost:3783/active-calls" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36" "-"
+asterisk-1  | 2026-03-05T11:57:22.883142590Z [2026-03-05 11:57:22] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:57:22.883388627Z [2026-03-05 11:57:22] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:57:23.752373536Z [2026-03-05 11:57:23] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:57:23.752489712Z [2026-03-05 11:57:23] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:57:23.762003718Z [2026-03-05 11:57:23] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:57:23.762209556Z [2026-03-05 11:57:23] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:57:23.772467793Z [2026-03-05 11:57:23] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:57:23.772636432Z [2026-03-05 11:57:23] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:57:23.782946268Z [2026-03-05 11:57:23] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:57:23.784009237Z [2026-03-05 11:57:23] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:57:23.793727317Z [2026-03-05 11:57:23] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:57:23.794713274Z [2026-03-05 11:57:23] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:57:23.804444011Z [2026-03-05 11:57:23] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:57:23.805559006Z [2026-03-05 11:57:23] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:57:23.815610332Z [2026-03-05 11:57:23] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:57:23.816811369Z [2026-03-05 11:57:23] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:57:24.157484260Z [2026-03-05 11:57:24] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:57:24.158986840Z [2026-03-05 11:57:24] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:57:25.791711400Z [2026-03-05 11:57:25] [0;33mNOTICE[30m[41]: [0;30mres_pjsip/pjsip_distributor.c[30m:[0;30m688[30m [0;30mlog_failed_request[30m: Request 'REGISTER' from '"P2P" <sip:127.0.0.1@192.168.1.64>' failed for '149.34.200.122:49860' (callid: 1994695676@192.168.1.100) - No matching endpoint found
+asterisk-1  | 2026-03-05T11:57:25.791732617Z [2026-03-05 11:57:25] [0;33mNOTICE[30m[41]: [0;30mres_pjsip/pjsip_distributor.c[30m:[0;30m688[30m [0;30mlog_failed_request[30m: Request 'REGISTER' from '"P2P" <sip:127.0.0.1@192.168.1.64>' failed for '149.34.200.122:49860' (callid: 1994695676@192.168.1.100) - Failed to authenticate
+asterisk-1  | 2026-03-05T11:57:26.378003617Z [2026-03-05 11:57:26] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:57:26.378100240Z [2026-03-05 11:57:26] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:57:29.926076458Z [2026-03-05 11:57:29] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:57:29.926099884Z [2026-03-05 11:57:29] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:57:30.405081531Z [2026-03-05 11:57:30] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:57:30.406860188Z [2026-03-05 11:57:30] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:57:33.415236995Z [2026-03-05 11:57:33] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:57:33.415395691Z [2026-03-05 11:57:33] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:57:35.812013003Z [2026-03-05 11:57:35] [0;33mNOTICE[30m[41]: [0;30mres_pjsip/pjsip_distributor.c[30m:[0;30m688[30m [0;30mlog_failed_request[30m: Request 'REGISTER' from '"P2P" <sip:127.0.0.1@192.168.1.64>' failed for '149.34.200.122:49860' (callid: 1994695676@192.168.1.100) - No matching endpoint found
+asterisk-1  | 2026-03-05T11:57:35.812051312Z [2026-03-05 11:57:35] [0;33mNOTICE[30m[41]: [0;30mres_pjsip/pjsip_distributor.c[30m:[0;30m688[30m [0;30mlog_failed_request[30m: Request 'REGISTER' from '"P2P" <sip:127.0.0.1@192.168.1.64>' failed for '149.34.200.122:49860' (callid: 1994695676@192.168.1.100) - Failed to authenticate
+asterisk-1  | 2026-03-05T11:57:36.813638878Z [2026-03-05 11:57:36] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:57:36.815927996Z [2026-03-05 11:57:36] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:57:37.201383987Z [2026-03-05 11:57:37] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:57:37.201402460Z [2026-03-05 11:57:37] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:57:40.928373218Z [2026-03-05 11:57:40] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:57:40.929039442Z [2026-03-05 11:57:40] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:57:43.159780744Z [2026-03-05 11:57:43] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:57:43.161254290Z [2026-03-05 11:57:43] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:57:44.461797790Z [2026-03-05 11:57:44] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:57:44.461908300Z [2026-03-05 11:57:44] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:57:45.826051628Z [2026-03-05 11:57:45] [0;33mNOTICE[30m[41]: [0;30mres_pjsip/pjsip_distributor.c[30m:[0;30m688[30m [0;30mlog_failed_request[30m: Request 'REGISTER' from '"P2P" <sip:127.0.0.1@192.168.1.64>' failed for '149.34.200.122:49860' (callid: 1994695676@192.168.1.100) - No matching endpoint found
+asterisk-1  | 2026-03-05T11:57:45.826081331Z [2026-03-05 11:57:45] [0;33mNOTICE[30m[41]: [0;30mres_pjsip/pjsip_distributor.c[30m:[0;30m688[30m [0;30mlog_failed_request[30m: Request 'REGISTER' from '"P2P" <sip:127.0.0.1@192.168.1.64>' failed for '149.34.200.122:49860' (callid: 1994695676@192.168.1.100) - Failed to authenticate
+asterisk-1  | 2026-03-05T11:57:48.134957616Z [2026-03-05 11:57:48] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:57:48.135444689Z [2026-03-05 11:57:48] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:57:49.471299655Z [2026-03-05 11:57:49] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:57:49.472605552Z [2026-03-05 11:57:49] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:57:51.826823737Z [2026-03-05 11:57:51] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:57:51.826850948Z [2026-03-05 11:57:51] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:57:53.904052012Z [2026-03-05 11:57:53] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:57:53.904136667Z [2026-03-05 11:57:53] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:57:53.914335836Z [2026-03-05 11:57:53] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:57:53.914521799Z [2026-03-05 11:57:53] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:57:53.926600439Z [2026-03-05 11:57:53] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:57:53.926872494Z [2026-03-05 11:57:53] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:57:53.939744506Z [2026-03-05 11:57:53] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:57:53.941097217Z [2026-03-05 11:57:53] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:57:53.953475229Z [2026-03-05 11:57:53] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:57:53.954788493Z [2026-03-05 11:57:53] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:57:53.968957859Z [2026-03-05 11:57:53] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:57:53.970321841Z [2026-03-05 11:57:53] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:57:53.984438774Z [2026-03-05 11:57:53] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:57:53.986204752Z [2026-03-05 11:57:53] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:57:55.353697054Z [2026-03-05 11:57:55] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:57:55.353818558Z [2026-03-05 11:57:55] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:57:55.736939037Z [2026-03-05 11:57:55] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:57:55.738574095Z [2026-03-05 11:57:55] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:57:55.848008121Z [2026-03-05 11:57:55] [0;33mNOTICE[30m[41]: [0;30mres_pjsip/pjsip_distributor.c[30m:[0;30m688[30m [0;30mlog_failed_request[30m: Request 'REGISTER' from '"P2P" <sip:127.0.0.1@192.168.1.64>' failed for '149.34.200.122:49860' (callid: 1994695676@192.168.1.100) - No matching endpoint found
+asterisk-1  | 2026-03-05T11:57:55.848122336Z [2026-03-05 11:57:55] [0;33mNOTICE[30m[41]: [0;30mres_pjsip/pjsip_distributor.c[30m:[0;30m688[30m [0;30mlog_failed_request[30m: Request 'REGISTER' from '"P2P" <sip:127.0.0.1@192.168.1.64>' failed for '149.34.200.122:49860' (callid: 1994695676@192.168.1.100) - Failed to authenticate
+asterisk-1  | 2026-03-05T11:57:58.866900706Z [2026-03-05 11:57:58] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:57:58.866999650Z [2026-03-05 11:57:58] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:58:01.995001453Z [2026-03-05 11:58:01] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:58:01.996544351Z [2026-03-05 11:58:01] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:58:02.404629883Z [2026-03-05 11:58:02] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:58:02.404836456Z [2026-03-05 11:58:02] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:58:05.866354368Z [2026-03-05 11:58:05] [0;33mNOTICE[30m[41]: [0;30mres_pjsip/pjsip_distributor.c[30m:[0;30m688[30m [0;30mlog_failed_request[30m: Request 'REGISTER' from '"P2P" <sip:127.0.0.1@192.168.1.64>' failed for '149.34.200.122:49860' (callid: 1994695676@192.168.1.100) - No matching endpoint found
+asterisk-1  | 2026-03-05T11:58:05.866449672Z [2026-03-05 11:58:05] [0;33mNOTICE[30m[41]: [0;30mres_pjsip/pjsip_distributor.c[30m:[0;30m688[30m [0;30mlog_failed_request[30m: Request 'REGISTER' from '"P2P" <sip:127.0.0.1@192.168.1.64>' failed for '149.34.200.122:49860' (callid: 1994695676@192.168.1.100) - Failed to authenticate
+asterisk-1  | 2026-03-05T11:58:05.918361391Z [2026-03-05 11:58:05] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:58:05.918469271Z [2026-03-05 11:58:05] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:58:08.281172873Z [2026-03-05 11:58:08] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:58:08.283854529Z [2026-03-05 11:58:08] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:58:09.572951713Z [2026-03-05 11:58:09] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:58:09.573491356Z [2026-03-05 11:58:09] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:58:13.130516582Z [2026-03-05 11:58:13] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:58:13.130607084Z [2026-03-05 11:58:13] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:58:14.632241003Z [2026-03-05 11:58:14] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:58:14.634167750Z [2026-03-05 11:58:14] [0;30m    -- [30mRemote UNIX connection disconnected
+asterisk-1  | 2026-03-05T11:58:15.876093995Z [2026-03-05 11:58:15] [0;33mNOTICE[30m[41]: [0;30mres_pjsip/pjsip_distributor.c[30m:[0;30m688[30m [0;30mlog_failed_request[30m: Request 'REGISTER' from '"P2P" <sip:127.0.0.1@192.168.1.64>' failed for '149.34.200.122:49860' (callid: 1994695676@192.168.1.100) - No matching endpoint found
+asterisk-1  | 2026-03-05T11:58:15.876387063Z [2026-03-05 11:58:15] [0;33mNOTICE[30m[41]: [0;30mres_pjsip/pjsip_distributor.c[30m:[0;30m688[30m [0;30mlog_failed_request[30m: Request 'REGISTER' from '"P2P" <sip:127.0.0.1@192.168.1.64>' failed for '149.34.200.122:49860' (callid: 1994695676@192.168.1.100) - Failed to authenticate
+asterisk-1  | 2026-03-05T11:58:16.698024649Z [2026-03-05 11:58:16] [0;30m    -- [30mRemote UNIX connection
+asterisk-1  | 2026-03-05T11:58:16.698202151Z [2026-03-05 11:58:16] [0;30m    -- [30mRemote UNIX connection disconnected

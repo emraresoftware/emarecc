@@ -1,0 +1,14 @@
+-- Borçlu GSM raporu alanları (Takip ID, Dosya Transfer Tarihi, Büro Adı, vb.)
+ALTER TABLE customers ADD COLUMN IF NOT EXISTS takip_id VARCHAR(50);
+ALTER TABLE customers ADD COLUMN IF NOT EXISTS dosya_transfer_tarihi DATE;
+ALTER TABLE customers ADD COLUMN IF NOT EXISTS buro_adi VARCHAR(100);
+ALTER TABLE customers ADD COLUMN IF NOT EXISTS dosya_asamasi VARCHAR(100);
+ALTER TABLE customers ADD COLUMN IF NOT EXISTS icrada_acilis_tarihi DATE;
+ALTER TABLE customers ADD COLUMN IF NOT EXISTS kapanis_tipi VARCHAR(50);
+ALTER TABLE customers ADD COLUMN IF NOT EXISTS kapanis_tarihi DATE;
+ALTER TABLE customers ADD COLUMN IF NOT EXISTS bildirim_tarihi DATE;
+ALTER TABLE customers ADD COLUMN IF NOT EXISTS icra_dairesi VARCHAR(100);
+ALTER TABLE customers ADD COLUMN IF NOT EXISTS icra_no VARCHAR(50);
+ALTER TABLE customers ADD COLUMN IF NOT EXISTS tckn VARCHAR(20);
+ALTER TABLE customers ADD COLUMN IF NOT EXISTS fatura_id VARCHAR(50);
+ALTER TABLE customers ADD COLUMN IF NOT EXISTS musteri_no VARCHAR(50);

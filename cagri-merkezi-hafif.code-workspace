@@ -1,0 +1,20 @@
+{
+  "folders": [
+    {
+      "path": ".",
+      "name": "Çağrı Merkezi"
+    }
+  ],
+  "settings": {
+    "files.exclude": {
+      "**/node_modules": true,
+      "**/backend/node_modules": true,
+      "**/frontend/node_modules": true,
+      "**/dist": true,
+      "**/recordings": true,
+      "**/.git": false
+    },
+    "editor.formatOnSave": false,
+    "files.autoSave": "off"
+  }
+}

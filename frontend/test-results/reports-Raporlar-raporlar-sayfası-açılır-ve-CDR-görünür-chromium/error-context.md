@@ -1,0 +1,100 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e3]:
+  - banner [ref=e4]:
+    - generic [ref=e5]:
+      - button [ref=e6] [cursor=pointer]:
+        - img [ref=e7]
+      - heading "OpenCC" [level=6] [ref=e9]
+      - paragraph [ref=e10]: admin (1000)
+      - button [ref=e11] [cursor=pointer]:
+        - img [ref=e12]
+  - list [ref=e16]:
+    - button "Dashboard" [ref=e17] [cursor=pointer]:
+      - img [ref=e19]
+      - generic [ref=e22]: Dashboard
+    - button "Müşteriler" [ref=e23] [cursor=pointer]:
+      - img [ref=e25]
+      - generic [ref=e28]: Müşteriler
+    - button "Preview Dialer" [ref=e29] [cursor=pointer]:
+      - img [ref=e31]
+      - generic [ref=e34]: Preview Dialer
+    - button "Wallboard" [ref=e35] [cursor=pointer]:
+      - img [ref=e37]
+      - generic [ref=e40]: Wallboard
+    - button "Raporlar" [ref=e41] [cursor=pointer]:
+      - img [ref=e43]
+      - generic [ref=e46]: Raporlar
+    - button "Kuyruklar" [ref=e47] [cursor=pointer]:
+      - img [ref=e49]
+      - generic [ref=e52]: Kuyruklar
+    - button "Scriptler" [ref=e53] [cursor=pointer]:
+      - img [ref=e55]
+      - generic [ref=e58]: Scriptler
+    - button "Aktif Çağrılar" [ref=e59] [cursor=pointer]:
+      - img [ref=e61]
+      - generic [ref=e64]: Aktif Çağrılar
+    - button "Kullanıcılar" [ref=e65] [cursor=pointer]:
+      - img [ref=e67]
+      - generic [ref=e70]: Kullanıcılar
+    - button "Kampanyalar" [ref=e71] [cursor=pointer]:
+      - img [ref=e73]
+      - generic [ref=e76]: Kampanyalar
+    - button "Ayarlar" [ref=e77] [cursor=pointer]:
+      - img [ref=e79]
+      - generic [ref=e82]: Ayarlar
+  - main [ref=e83]:
+    - generic [ref=e84]:
+      - heading "CDR Raporları" [level=5] [ref=e85]
+      - generic [ref=e86]:
+        - generic [ref=e87]:
+          - generic [ref=e88]: Başlangıç
+          - generic [ref=e89]:
+            - textbox "Başlangıç" [ref=e90]: 2026-02-17
+            - group:
+              - generic: Başlangıç
+        - generic [ref=e91]:
+          - generic [ref=e92]: Bitiş
+          - generic [ref=e93]:
+            - textbox "Bitiş" [ref=e94]: 2026-02-17
+            - group:
+              - generic: Bitiş
+        - generic [ref=e95]:
+          - generic: Ajan
+          - generic [ref=e96]:
+            - combobox [ref=e97] [cursor=pointer]
+            - textbox
+            - img
+            - group:
+              - generic: Ajan
+        - generic [ref=e98]:
+          - generic: Durum
+          - generic [ref=e99]:
+            - combobox [ref=e100] [cursor=pointer]
+            - textbox
+            - img
+            - group:
+              - generic: Durum
+        - button "Filtrele" [ref=e101] [cursor=pointer]:
+          - img [ref=e103]
+          - text: Filtrele
+        - button "CSV İndir" [disabled]:
+          - generic:
+            - img
+          - text: CSV İndir
+      - table [ref=e106]:
+        - rowgroup [ref=e107]:
+          - row "Tarih Arayan Aranan Ajan Süre (sn) Durum Disposition Transkript Kayıt" [ref=e108]:
+            - columnheader [ref=e109]
+            - columnheader "Tarih" [ref=e110]
+            - columnheader "Arayan" [ref=e111]
+            - columnheader "Aranan" [ref=e112]
+            - columnheader "Ajan" [ref=e113]
+            - columnheader "Süre (sn)" [ref=e114]
+            - columnheader "Durum" [ref=e115]
+            - columnheader "Disposition" [ref=e116]
+            - columnheader "Transkript" [ref=e117]
+            - columnheader "Kayıt" [ref=e118]
+        - rowgroup
+```

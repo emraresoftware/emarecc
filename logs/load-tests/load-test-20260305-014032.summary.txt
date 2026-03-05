@@ -1,0 +1,9 @@
+Load Test Özeti
+=================
+Base URL: https://localhost:3783
+Users: 25
+Concurrency: 10
+Login PASS: 20
+Login FAIL: 5
+
+Detay CSV: logs/load-tests/load-test-20260305-014032.csv

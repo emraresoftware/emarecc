@@ -1,0 +1,24 @@
+FROM node:20-alpine AS builder
+WORKDIR /app
+ARG VITE_API_URL=
+ARG VITE_WS_URL=
+ARG VITE_SIP_WS_URL=
+ARG VITE_SIP_DOMAIN=
+ARG VITE_SIP_SECRET=webrtc123
+ENV VITE_API_URL=$VITE_API_URL
+ENV VITE_WS_URL=$VITE_WS_URL
+ENV VITE_SIP_WS_URL=$VITE_SIP_WS_URL
+ENV VITE_SIP_DOMAIN=$VITE_SIP_DOMAIN
+ENV VITE_SIP_SECRET=$VITE_SIP_SECRET
+COPY package*.json ./
+RUN npm ci
+COPY . .
+RUN npm run build
+
+FROM node:20-alpine
+WORKDIR /app
+RUN npm install -g serve
+COPY --from=builder /app/dist ./dist
+EXPOSE 3000
+ENV NODE_ENV=production
+CMD ["serve", "-s", "dist", "-l", "3000"]

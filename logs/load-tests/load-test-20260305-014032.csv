@@ -1,0 +1,26 @@
+user,login_ok,login_code,call_ok,call_code,extension,error
+agent_test01,true,200,NA,NA,,
+agent_test04,true,200,NA,NA,,
+agent_test09,true,200,NA,NA,,
+agent_test03,true,200,NA,NA,,
+agent_test05,true,200,NA,NA,,
+agent_test08,true,200,NA,NA,,
+agent_test07,true,200,NA,NA,,
+agent_test06,true,200,NA,NA,,
+agent_test11,true,200,NA,NA,,
+agent_test02,true,200,NA,NA,,
+agent_test10,true,200,NA,NA,,
+agent_test12,true,200,NA,NA,,
+agent_test13,true,200,NA,NA,,
+agent_test15,true,200,NA,NA,,
+agent_test16,true,200,NA,NA,,
+agent_test14,true,200,NA,NA,,
+agent_test17,true,200,NA,NA,,
+agent_test19,true,200,NA,NA,,
+lider_test1,false,401,NA,NA,,Invalid credentials
+agent_test18,true,200,NA,NA,,
+agent_test20,true,200,NA,NA,,
+lider_test3,false,401,NA,NA,,Invalid credentials
+lider_test2,false,401,NA,NA,,Invalid credentials
+lider_test5,false,401,NA,NA,,Invalid credentials
+lider_test4,false,401,NA,NA,,Invalid credentials

@@ -1,0 +1,27 @@
+# OpenCC Production - Nginx reverse proxy ile HTTPS/WSS
+# Kullanım: docker compose -f docker-compose.yml -f docker-compose.prod.yml up -d
+# Önkoşul: docker/ssl/ altında cert.pem ve key.pem (Let's Encrypt veya self-signed)
+
+services:
+  nginx:
+    image: nginx:alpine
+    ports:
+      - "443:443"
+      - "80:80"
+    volumes:
+      - ./docker/nginx.conf:/etc/nginx/conf.d/default.conf:ro
+      - ./docker/ssl:/etc/nginx/ssl:ro
+    depends_on:
+      - backend
+      - frontend
+
+  backend:
+    environment:
+      NODE_ENV: production
+      PUBLIC_URL: https://${DOMAIN:-localhost}
+      CRM_BASE_URL: ${CRM_BASE_URL:-}
+
+  frontend:
+    environment:
+      VITE_API_URL: https://${DOMAIN:-localhost}
+      VITE_WS_URL: wss://${DOMAIN:-localhost}

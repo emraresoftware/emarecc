@@ -1,0 +1,3 @@
+# SSL sertifikaları buraya koyun (cert.pem, key.pem)
+# Bu dosyalar .gitignore'da - commit etmeyin
+*.pem
