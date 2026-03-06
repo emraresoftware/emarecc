@@ -1,0 +1,22 @@
+{
+  "slug": "emarecc",
+  "name": "Emare CC",
+  "github_repo": "emraresoftware/emarecc",
+  "branch": "main",
+  "dc": "local",
+  "server_host": null,
+  "server_ssh_port": 22,
+  "remote_path": "/opt/emarecc",
+  "stack": "python-gunicorn",
+  "port": 8306,
+  "domain": "",
+  "deploy_commands": [
+    "cd /opt/emarecc",
+    "git pull origin main",
+    "source venv/bin/activate && pip install -r requirements.txt -q",
+    "sudo systemctl restart emarecc"
+  ],
+  "restart_command": "systemctl status emarecc --no-pager",
+  "auto_deploy_on_push": false,
+  "health_check_url": null
+}
