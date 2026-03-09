@@ -133,6 +133,7 @@
 │   ├── USER_STORIES.md
 │   ├── WEBRTC_SOFTPHONE.md
 │   └── readme.md
+├── SORUNLAR.md
 ├── emarecc_hafiza.md
 ├── frontend
 │   ├── .env.example
@@ -272,6 +273,55 @@ Bu dosya, kod üretmeden önce projenin mevcut yapısını kontrol etmek içindi
 - ❌ "Yeni bir auth.py oluşturalım" → ✅ Kontrol et, zaten `app/auth.py` var mı?
 - ❌ "config/ klasörü oluşturalım" → ✅ Kontrol et, zaten `config/` var mı?
 - ❌ `from utils import helper` → ✅ Kontrol et, `utils/helper.py` gerçekten var mı?
+
+---
+
+## ⚠️ Dosya Sistemi Yeniden Düzenlendi (8 Mart 2026)
+
+Yukarıdaki ağaç 7 Mart'ta oluşturulmuştu. **Dosya sistemi standarda geçirildi:**
+
+### Root'ta SADECE 3 MD Dosya
+```
+emarecc/
+├── README.md              # Proje tanıtımı
+├── DOSYA_YAPISI.md        # Bu dosya
+├── emarecc_hafiza.md      # Proje hafızası (AI derviş için)
+└── EMARE_ORTAK_CALISMA/   # Symlink — EMARE_ANAYASA, ORTAK_HAFIZA vb.
+```
+
+### Root'tan docs/'a Taşınan Dosyalar
+- `CHANGELOG.md` → `docs/CHANGELOG.md`
+- `SORUNLAR.md` → `docs/SORUNLAR.md`
+- `CURSOR_STABILITY.md` → `docs/CURSOR_STABILITY.md`
+- `CONTRIBUTING.md` → `docs/CONTRIBUTING.md`
+- `COPILOT_SESSION_HAFIZA.md` → `docs/COPILOT_SESSION_HAFIZA.md`
+- `DERVISHIN_CEYIZI.md` → `docs/DERVISHIN_CEYIZI.md`
+- `QUICKSTART_DEV.md` → `docs/QUICKSTART_DEV.md`
+- `öner.md` → `docs/öner.md`
+
+### Root'tan Silinen Dosyalar (symlink'te mevcut)
+- `EMARE_ANAYASA.md` → `EMARE_ORTAK_CALISMA/EMARE_ANAYASA.md` kullan
+- `EMARE_ORTAK_HAFIZA.md` → `EMARE_ORTAK_CALISMA/EMARE_ORTAK_HAFIZA.md` kullan
+- `EMARE_AI_COLLECTIVE.md` → `EMARE_ORTAK_CALISMA/EMARE_AI_COLLECTIVE.md` kullan
+- `RECOMMENDATIONS.md.resolved` → silindi
+
+### Yeni Dosyalar
+- `docs/00_INDEX.md` — Dokümantasyon master indeksi
+- `asterisk_config/rtp.conf` — RTP port ayarları (10000-10050)
+- `docs/SORUNLAR.md` — 15 sorun + Kritik Kurallar bölümü
+
+### scripts/ klasörü (GoIP16 yönetim scriptleri)
+```
+scripts/
+├── goip-proxy.js           # GoIP16 proxy
+├── goip_callin_full.py     # Gelen çağrı tam konfigürasyon
+├── goip_calling.py         # Giden çağrı konfigürasyon
+├── goip_clean_ips.py       # GoIP16 IP temizleme
+├── goip_trunk_config.py    # Trunk Gateway konfigürasyon
+├── goip_update_config.py   # Genel config güncelleme
+├── goip_full_audit.py      # Tam denetim raporu
+└── ...                     # + diğer GoIP yardımcı scriptleri
+```
 
 ---
 

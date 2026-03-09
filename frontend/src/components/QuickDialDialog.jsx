@@ -66,10 +66,21 @@ export default function QuickDialDialog({ open, onClose }) {
         setNumber('');
         return;
       }
-      await api.post('/calls/initiate', {
-        extension: user.extension,
-        destination: num,
-      });
+      // Dış arama: DB kaydı + doğrudan SIP INVITE
+      if (sip?.enabled && sip?.call) {
+        await api.post('/calls/initiate', {
+          extension: user.extension,
+          destination: num,
+          webrtc_direct: true,
+        });
+        await sip.ensureRegistered?.();
+        await sip.call('9' + num);
+      } else {
+        await api.post('/calls/initiate', {
+          extension: user.extension,
+          destination: num,
+        });
+      }
       onClose?.();
       setNumber('');
     } catch (e) {

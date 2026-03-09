@@ -33,9 +33,25 @@ export default function SoftphoneWidget() {
   const [transferType, setTransferType] = useState('blind');
   const [transferLoading, setTransferLoading] = useState(false);
 
-  const sipConnected = sip?.enabled && sip?.state === 'connected';
+  const sipConnected = sip?.enabled && (sip?.state === 'connected' || sip?.state === 'calling');
   const sipInCall = sipConnected;
   const [callDuration, setCallDuration] = useState(0);
+
+  // SIP state 'registered'/'disconnected' olduğunda local callState'i de sıfırla
+  // Bu, çağrı düştüğünde veya bağlantı koptuğunda UI'ın takılı kalmasını engeller
+  useEffect(() => {
+    if (!sipInCall && sip?.state !== 'incoming' && callState !== 'idle') {
+      // SIP artık aramada değil ama callState henüz sıfırlanmamış
+      const timeout = setTimeout(() => {
+        if (!sipInCall && callState !== 'idle') {
+          console.log('[Softphone] SIP arama bitti, callState sıfırlanıyor');
+          setCallState('idle');
+          setActiveCallId(null);
+        }
+      }, 2000); // 2sn tolerans — arama kurulumu sırasında erken tetiklenmesin
+      return () => clearTimeout(timeout);
+    }
+  }, [sipInCall, sip?.state, callState]);
 
   useEffect(() => {
     if (!sipInCall) {
@@ -101,12 +117,26 @@ export default function SoftphoneWidget() {
         setCallState('ringing');
         return;
       }
-      const res = await api.post('/calls/initiate', {
-        extension: user.extension,
-        destination: num,
-      });
-      setActiveCallId(res?.data?.id || null);
-      setCallState('ringing');
+      // Dış arama: önce DB kaydı oluştur, sonra WebRTC ile doğrudan SIP INVITE gönder
+      if (sip?.enabled && sip?.call) {
+        const res = await api.post('/calls/initiate', {
+          extension: user.extension,
+          destination: num,
+          webrtc_direct: true,
+        });
+        setActiveCallId(res?.data?.id || null);
+        await sip.ensureRegistered?.();
+        await sip.call('9' + num);
+        setCallState('ringing');
+      } else {
+        // Fallback: AMI Originate (WebRTC hazır değilse)
+        const res = await api.post('/calls/initiate', {
+          extension: user.extension,
+          destination: num,
+        });
+        setActiveCallId(res?.data?.id || null);
+        setCallState('ringing');
+      }
     } catch (e) {
       setError(e.response?.data?.message || e.message || 'Hata');
       setCallState('idle');
@@ -133,9 +163,12 @@ export default function SoftphoneWidget() {
 
   const handleHangup = async () => {
     try {
-      if (sipInCall && sip?.hangup) {
+      // SIP seviyesinde çağrıyı sonlandır (connected, calling, incoming tüm durumlar)
+      if (sip?.hangup) {
+        console.log('[Softphone] Kapat basıldı, sip.hangup() çağrılıyor');
         await sip.hangup();
       }
+      // Backend'de çağrı kaydını güncelle
       let callIdToHangup = activeCallId;
       if (!callIdToHangup) {
         try {
@@ -146,13 +179,14 @@ export default function SoftphoneWidget() {
         }
       }
       if (callIdToHangup) {
-        await api.post(`/calls/${callIdToHangup}/hangup`);
+        await api.post(`/calls/${callIdToHangup}/hangup`).catch(() => {});
       }
     } catch (e) {
-      setError(e.response?.data?.message || e.message || 'Çağrı sonlandırılamadı');
+      console.warn('[Softphone] hangup hatası:', e?.message);
     } finally {
       setCallState('idle');
       setActiveCallId(null);
+      setError('');
     }
   };
 

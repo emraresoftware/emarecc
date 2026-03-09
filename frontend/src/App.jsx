@@ -22,6 +22,7 @@ import Logs from './pages/Logs';
 import ResetPassword from './pages/ResetPassword';
 import SoftphoneSettings from './pages/SoftphoneSettings';
 import LiveSessions from './pages/LiveSessions';
+import FctPorts from './pages/FctPorts';
 
 function ProtectedRoute({ children }) {
   const { user, loading } = useAuth();
@@ -66,6 +67,7 @@ export default function App() {
                 <Route path="/softphone-settings" element={<RequireRole roles={['admin']}><SoftphoneSettings /></RequireRole>} />
                 <Route path="/logs" element={<RequireRole roles={['admin']}><Logs /></RequireRole>} />
                 <Route path="/sessions" element={<RequireRole roles={['admin', 'supervisor']}><LiveSessions /></RequireRole>} />
+                <Route path="/fct-ports" element={<RequireRole roles={['admin']}><FctPorts /></RequireRole>} />
               </Routes>
             </Layout>
           </ProtectedRoute>

@@ -2,6 +2,7 @@ services:
   db:
     image: postgres:16-alpine
     environment:
+      TZ: Europe/Istanbul
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: secret
       POSTGRES_DB: callcenter_db
@@ -18,6 +19,8 @@ services:
 
   redis:
     image: redis:alpine
+    environment:
+      TZ: Europe/Istanbul
     volumes:
       - redis_data:/data
     ports:
@@ -30,16 +33,20 @@ services:
 
   asterisk:
     image: andrius/asterisk:latest
+    hostname: asterisk.local
+    environment:
+      TZ: Europe/Istanbul
     volumes:
       - ./asterisk_config:/etc/asterisk
       - ./recordings:/var/spool/asterisk/monitor
+      - asterisk_logs:/var/log/asterisk
     cap_add:
       - SYS_PTRACE
       - NET_ADMIN
     ports:
       - "5038:5038"   # AMI
       - "5060:5060/udp"   # SIP
-      - "10000-10020:10000-10020/udp"   # RTP
+      - "10000-10050:10000-10050/udp"   # RTP (rtp.conf ile eşleşmeli!)
       - "8088:8088"   # HTTP / WebSocket (ws)
       - "8089:8089"   # HTTPS / WebSocket (wss)
     depends_on:
@@ -51,8 +58,12 @@ services:
     command: sh -c "node scripts/migrate.js && node scripts/seed.js && node dist/index.js"
     ports:
       - "5001:5000"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+      - "goip16:192.168.1.100"
     volumes:
       - ./recordings:/recordings:ro
+      - asterisk_logs:/var/log/asterisk:ro
     depends_on:
       db:
         condition: service_healthy
@@ -61,6 +72,7 @@ services:
       asterisk:
         condition: service_started
     environment:
+      TZ: Europe/Istanbul
       NODE_ENV: development
       RECORDINGS_PATH: /recordings
       PORT: 5000
@@ -73,10 +85,15 @@ services:
       AMI_HOST: asterisk
       AMI_PORT: 5038
       AMI_USER: admin
-      AMI_SECRET: Emre2025**
+      AMI_SECRET: admin
       AMI_DIAL_TRUNK: fct-trunk
+      AMI_DIAL_TECH: PJSIP
+      AMI_ORIGINATE_TIMEOUT_MS: 15000
       DEFAULT_AGENT_USERNAME: agent12
       JWT_SECRET: opencc-jwt-secret-change-in-production
+      GOIP_HOST: 192.168.1.100
+      GOIP_USER: admin
+      GOIP_PASS: admin
 
   worker:
     build: ./backend
@@ -84,6 +101,7 @@ services:
     volumes:
       - ./recordings:/recordings:ro
     environment:
+      TZ: Europe/Istanbul
       NODE_ENV: development
       RECORDINGS_PATH: /recordings
       DB_HOST: db
@@ -118,6 +136,8 @@ services:
 
   web:
     image: nginx:alpine
+    environment:
+      TZ: Europe/Istanbul
     ports:
       - "3783:443"
       - "3000:80"
@@ -132,3 +152,4 @@ services:
 volumes:
   postgres_data:
   redis_data:
+  asterisk_logs:

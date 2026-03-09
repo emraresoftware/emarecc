@@ -30,8 +30,9 @@ router.post('/initiate', validate(initiateCallSchema), async (req: Request, res:
       external_id?: string;
       external_type?: string;
       callback_url?: string;
+      webrtc_direct?: boolean;
     };
-    const { extension, destination, customer_id, external_id, external_type, callback_url } = v;
+    const { extension, destination, customer_id, external_id, external_type, callback_url, webrtc_direct } = v;
     const dest = String(destination).replace(/\D/g, '');
     if (!dest) return res.status(400).json({ message: 'Invalid destination' });
 
@@ -116,9 +117,17 @@ router.post('/initiate', validate(initiateCallSchema), async (req: Request, res:
     const id = uuidv4();
     await pool.query(
       `INSERT INTO calls (id, agent_id, destination_number, direction, status, started_at, external_id, external_type, callback_url, customer_id)
-       VALUES ($1, $2, $3, 'outbound', 'initiating', NOW(), $4, $5, $6, $7)`,
-      [id, agentId, dest, external_id ?? null, external_type ?? 'crm', callback_url ?? null, customer_id ?? null]
+       VALUES ($1, $2, $3, 'outbound', $8, NOW(), $4, $5, $6, $7)`,
+      [id, agentId, dest, external_id ?? null, external_type ?? 'crm', callback_url ?? null, customer_id ?? null, webrtc_direct ? 'ringing' : 'initiating']
     );
+
+    // WebRTC doğrudan arama: tarayıcı SIP INVITE gönderiyor, AMI Originate gerekmez
+    if (webrtc_direct) {
+      await setLastCallExtension(dest, String(extension));
+      logger.info('WebRTC direct call record created', { callId: id, extension, destination: dest });
+      const { rows } = await pool.query('SELECT * FROM calls WHERE id = $1', [id]);
+      return res.status(201).json({ ...rows[0], ami_unique_id: null });
+    }
 
     let uniqueId: string | null = null;
     let lastInitiateError: string | null = null;
@@ -203,7 +212,10 @@ router.get('/me/active', async (req: Request, res: Response) => {
     if (!rows[0]) return res.status(204).send();
 
     const extension = String(userRow?.extension || '').replace(/\D/g, '');
-    if (extension) {
+    if (extension && rows[0].status !== 'ringing') {
+      // WebRTC direct aramalarda 'ringing' status'unu kontrol etme — 
+      // kanal kontrolü sadece 'connected' veya 'initiating' durumlar için geçerli.
+      // 'ringing' durumunda SIP.js kendi state'ini yönetiyor.
       let hasLiveChannel = true;
       try {
         const channels = await runAmiCommand('core show channels concise');
@@ -219,7 +231,7 @@ router.get('/me/active', async (req: Request, res: Response) => {
            SET status = 'failed',
                hangup_cause = COALESCE(hangup_cause, 'ME_ACTIVE_NO_LIVE_CHANNEL')
            WHERE id = $1
-             AND status IN ('ringing', 'connected', 'initiating')`,
+             AND status IN ('connected', 'initiating')`,
           [rows[0].id]
         );
         return res.status(204).send();

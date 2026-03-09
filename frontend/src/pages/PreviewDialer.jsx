@@ -15,10 +15,12 @@ import {
 import PhoneIcon from '@mui/icons-material/Phone';
 import RefreshIcon from '@mui/icons-material/Refresh';
 import { useAuth } from '../context/AuthContext';
+import { useSip } from '../context/SipContext';
 import api from '../utils/api';
 
 export default function PreviewDialer() {
   const { user } = useAuth();
+  const sip = useSip();
   const [campaigns, setCampaigns] = useState([]);
   const [campaignId, setCampaignId] = useState('');
   const [lead, setLead] = useState(null);
@@ -53,11 +55,23 @@ export default function PreviewDialer() {
     if (!lead || !user?.extension) return;
     setCalling(true);
     try {
-      await api.post('/calls/initiate', {
-        extension: user.extension,
-        destination: lead.phone_number,
-        customer_id: lead.customer_id,
-      });
+      const num = lead.phone_number.replace(/\D/g, '');
+      if (sip?.enabled && sip?.call) {
+        await api.post('/calls/initiate', {
+          extension: user.extension,
+          destination: lead.phone_number,
+          customer_id: lead.customer_id,
+          webrtc_direct: true,
+        });
+        await sip.ensureRegistered?.();
+        await sip.call('9' + num);
+      } else {
+        await api.post('/calls/initiate', {
+          extension: user.extension,
+          destination: lead.phone_number,
+          customer_id: lead.customer_id,
+        });
+      }
       if (lead.id) {
         await api.patch(`/campaigns/${campaignId}/leads/${lead.id}/status`, { status: 'ringing' });
       }

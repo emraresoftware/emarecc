@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
+import { useSip } from '../context/SipContext';
 import {
   Box,
   Typography,
@@ -27,6 +28,7 @@ export default function CustomerDetail() {
   const { id } = useParams();
   const navigate = useNavigate();
   const { user } = useAuth();
+  const sip = useSip();
   const [customer, setCustomer] = useState(null);
   const [note, setNote] = useState('');
   const [editOpen, setEditOpen] = useState(false);
@@ -59,11 +61,23 @@ export default function CustomerDetail() {
     if (!user?.extension || !customer?.phone_number) return;
     setCalling(true);
     try {
-      await api.post('/calls/initiate', {
-        extension: user.extension,
-        destination: customer.phone_number,
-        customer_id: customer.id,
-      });
+      const num = customer.phone_number.replace(/\D/g, '');
+      if (sip?.enabled && sip?.call) {
+        await api.post('/calls/initiate', {
+          extension: user.extension,
+          destination: customer.phone_number,
+          customer_id: customer.id,
+          webrtc_direct: true,
+        });
+        await sip.ensureRegistered?.();
+        await sip.call('9' + num);
+      } else {
+        await api.post('/calls/initiate', {
+          extension: user.extension,
+          destination: customer.phone_number,
+          customer_id: customer.id,
+        });
+      }
     } catch (e) {
       alert(e.response?.data?.message || e.message || 'Arama başlatılamadı');
     }

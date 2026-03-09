@@ -34,6 +34,37 @@ export const getConnection = (): AmiConnection | null => amiConnection;
 const extensionSockets = new Map<string, Set<string>>();
 const activeCallChannels = new Map<string, BridgeChannels>();
 
+/* ─── Otomatik Reconnect ─── */
+let reconnectTimer: ReturnType<typeof setTimeout> | null = null;
+let reconnectAttempts = 0;
+const RECONNECT_BASE_MS = 2000;   // 2 saniye
+const RECONNECT_MAX_MS  = 30000;  // maksimum 30 saniye
+let isReconnecting = false;
+
+function scheduleAmiReconnect(): void {
+  if (reconnectTimer || isReconnecting) return;
+  const delay = Math.min(RECONNECT_BASE_MS * Math.pow(2, reconnectAttempts), RECONNECT_MAX_MS);
+  reconnectAttempts++;
+  logger.warn(`AMI reconnect planlandı: ${delay}ms sonra (deneme #${reconnectAttempts})`);
+  reconnectTimer = setTimeout(async () => {
+    reconnectTimer = null;
+    isReconnecting = true;
+    try {
+      await reconnectAmi();
+    } catch (e) {
+      logger.error('AMI reconnect başarısız', { message: (e as Error).message });
+      scheduleAmiReconnect();
+    } finally {
+      isReconnecting = false;
+    }
+  }, delay);
+}
+
+function resetReconnectState(): void {
+  reconnectAttempts = 0;
+  if (reconnectTimer) { clearTimeout(reconnectTimer); reconnectTimer = null; }
+}
+
 export function getExtensionSockets(): Map<string, Set<string>> {
   return extensionSockets;
 }
@@ -53,25 +84,42 @@ export function unregisterSocket(socketId: string): void {
 }
 
 async function connectAmi(io: SocketServer, config: AmiConfigLike): Promise<void> {
-  if (!config?.host || !config?.user || !config?.secret) {
-    logger.warn('AMI not configured (host/user/secret eksik). Panel: Sistem Ayarları > Asterisk AMI veya .env AMI_* değerlerini doldurun.');
-    return;
-  }
+  // Kapalı devre — host yeterli, user/secret yoksa varsayılan kullan
+  const host = config?.host || 'asterisk';
+  const port = config?.port || 5038;
+  const user = config?.user || 'admin';
+  const secret = config?.secret || 'admin';
+
   if (amiConnection) {
     try {
+      amiConnection.removeAllListeners('error');
+      amiConnection.removeAllListeners('connect');
+      amiConnection.removeAllListeners('close');
       amiConnection.disconnect();
     } catch {
       /* ignore */
     }
     amiConnection = null;
   }
-  const { host, port, user, secret } = config;
-  logger.info('AMI bağlanıyor', { host, port, user: user });
+
+  logger.info('AMI bağlanıyor', { host, port, user });
   currentIo = io;
   const mod = await import('asterisk-manager');
   const ami = mod.default as (port: number, host: string, user: string, secret: string, keepAlive: boolean) => AmiConnection;
-  amiConnection = ami(port!, host, user, secret, true);
-  amiConnection.on('connect', () => logger.info('AMI connected', { host, port }));
+  amiConnection = ami(port, host, user, secret, true);
+
+  amiConnection.on('connect', () => {
+    logger.info('✅ AMI connected', { host, port });
+    resetReconnectState();
+  });
+
+  // Bağlantı koptuğunda otomatik yeniden bağlan
+  amiConnection.on('close' as string, () => {
+    logger.warn('⚠️ AMI bağlantısı koptu — otomatik reconnect başlatılıyor');
+    amiConnection = null;
+    scheduleAmiReconnect();
+  });
+
   amiConnection.on('managerevent', (...args: unknown[]) => {
     const evt = args[0] as Record<string, unknown>;
     const event = evt.event as string;
@@ -85,7 +133,16 @@ async function connectAmi(io: SocketServer, config: AmiConfigLike): Promise<void
       handleHangup(evt);
     }
   });
-  amiConnection.on('error', (...args: unknown[]) => logger.error('AMI error', { message: (args[0] as Error).message }));
+
+  amiConnection.on('error', (...args: unknown[]) => {
+    logger.error('AMI error', { message: (args[0] as Error).message });
+    // Error sonrası close event gelmezse de reconnect tetikle
+    if (!reconnectTimer && !isReconnecting) {
+      amiConnection = null;
+      scheduleAmiReconnect();
+    }
+  });
+
   amiConnection.connect();
 }
 
@@ -154,6 +211,11 @@ async function handleIncomingCall(evt: Record<string, unknown>, io: SocketServer
 
   const context = String(evt.context ?? evt.Context ?? '');
   let extension = dest != null ? String(dest).replace(/\D/g, '') : '';
+  // NOT: Callback routing (last_call redirect) şu an devre dışı.
+  // Queue zaten aramayı handle ediyor. Redirect, Queue cevapladıktan sonra
+  // çalışınca çakışma yaratıyordu (BYE + yeni INVITE → çift modal sorunu).
+  // İleride Queue'ya girmeden ÖNCE redirect yapılacak şekilde refactor edilecek.
+  /*
   if ((context === 'from-pstn' || context === 'default') && channel) {
     const lastExt = await getLastCallExtension(callerIdNum);
     if (lastExt) {
@@ -165,6 +227,7 @@ async function handleIncomingCall(evt: Record<string, unknown>, io: SocketServer
       }
     }
   }
+  */
 
   let customer: Record<string, unknown> | null = null;
   try {

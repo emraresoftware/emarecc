@@ -106,4 +106,4 @@ Token: Ayarlar → Wallboard Public Token
 
 ## v1.0 Release
 
-`CHANGELOG.md` için sürüm geçmişi.
+`docs/CHANGELOG.md` için sürüm geçmişi.

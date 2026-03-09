@@ -11,6 +11,8 @@ RUN npm run build
 
 # Stage 2: Production
 FROM node:20-alpine
+RUN apk add --no-cache tzdata
+ENV TZ=Europe/Istanbul
 WORKDIR /app
 
 COPY package*.json ./

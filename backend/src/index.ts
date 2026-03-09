@@ -27,6 +27,7 @@ import chatRoutes from './routes/chat.js';
 import asteriskRoutes from './routes/asterisk.js';
 import debugRoutes from './routes/debug.js';
 import sessionsRoutes from './routes/sessions.js';
+import fctRoutes from './routes/fct.js';
 
 const PORT = parseInt(process.env.PORT || '5001', 10);
 const app = express();
@@ -41,11 +42,13 @@ app.set('trust proxy', 1);
 app.use(cors());
 app.use(express.json());
 
-const apiLimiter = rateLimit({ windowMs: 15 * 60 * 1000, max: parseInt(process.env.RATE_LIMIT_MAX || '1000', 10), message: { message: 'Too many requests' } });
+const apiLimiter = rateLimit({ windowMs: 15 * 60 * 1000, max: parseInt(process.env.RATE_LIMIT_MAX || '3000', 10), message: { message: 'Too many requests' } });
 const authLimiter = rateLimit({ windowMs: 15 * 60 * 1000, max: parseInt(process.env.RATE_LIMIT_LOGIN || '50', 10), message: { message: 'Too many login attempts' } });
-app.use('/api/v1/', apiLimiter);
 app.use('/api/v1/auth/login', authLimiter);
 app.use('/api/v1/auth/forgot-password', rateLimit({ windowMs: 15 * 60 * 1000, max: 10, message: { message: 'Çok fazla deneme. 15 dakika sonra tekrar deneyin.' } }));
+// Debug/polling endpoint'leri rate limit dışında — sürekli polling yapıyorlar
+app.use('/api/v1/debug', (_req, _res, next) => next());
+app.use('/api/v1/', apiLimiter);
 
 app.use('/api/v1/auth', authRoutes);
 app.use('/api/v1/test', testRoutes);
@@ -62,6 +65,7 @@ app.use('/api/v1/chat', chatRoutes);
 app.use('/api/v1/asterisk', asteriskRoutes);
 app.use('/api/v1/debug', debugRoutes);
 app.use('/api/v1/sessions', sessionsRoutes);
+app.use('/api/v1/fct', fctRoutes);
 
 app.get('/health', (req, res) => res.json({ status: 'ok' }));
 

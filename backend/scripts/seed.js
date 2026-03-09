@@ -68,27 +68,28 @@ async function seed() {
   // Docker: DB_HOST=db → ami_host=asterisk; Local: ami_host=localhost
   const amiHost = process.env.DB_HOST === 'db' ? 'asterisk' : 'localhost';
   const amiSecret = process.env.AMI_SECRET || 'Emre2025**';
+  // AMI ayarları her başlatmada ortam değişkenlerinden zorla güncellenir
   await pool.query(
     `INSERT INTO system_settings (key, value, updated_at) VALUES ('ami_host', $1, NOW())
-     ON CONFLICT (key) DO NOTHING`,
+     ON CONFLICT (key) DO UPDATE SET value = EXCLUDED.value, updated_at = NOW()`,
     [amiHost]
   );
   await pool.query(
     `INSERT INTO system_settings (key, value, updated_at) VALUES ('ami_port', '5038', NOW())
-     ON CONFLICT (key) DO NOTHING`
+     ON CONFLICT (key) DO UPDATE SET value = EXCLUDED.value, updated_at = NOW()`
   );
   await pool.query(
     `INSERT INTO system_settings (key, value, updated_at) VALUES ('ami_user', 'admin', NOW())
-     ON CONFLICT (key) DO NOTHING`
+     ON CONFLICT (key) DO UPDATE SET value = EXCLUDED.value, updated_at = NOW()`
   );
   await pool.query(
     `INSERT INTO system_settings (key, value, updated_at) VALUES ('ami_secret', $1, NOW())
-     ON CONFLICT (key) DO NOTHING`,
+     ON CONFLICT (key) DO UPDATE SET value = EXCLUDED.value, updated_at = NOW()`,
     [amiSecret]
   );
   await pool.query(
     `INSERT INTO system_settings (key, value, updated_at) VALUES ('ami_dial_trunk', 'fct-trunk', NOW())
-     ON CONFLICT (key) DO NOTHING`
+     ON CONFLICT (key) DO UPDATE SET value = EXCLUDED.value, updated_at = NOW()`
   );
 
   console.log(

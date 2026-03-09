@@ -34,6 +34,7 @@ import PersonIcon from '@mui/icons-material/Person';
 import ChatIcon from '@mui/icons-material/Chat';
 import LogoutIcon from '@mui/icons-material/Logout';
 import TerminalIcon from '@mui/icons-material/Terminal';
+import SimCardIcon from '@mui/icons-material/SimCard';
 import { useAuth } from '../context/AuthContext';
 import { useSocket } from '../context/SocketContext';
 import SoftphoneWidget from './SoftphoneWidget';
@@ -140,6 +141,7 @@ export default function Layout({ children }) {
           { path: '/settings', label: 'Ayarlar', icon: <SettingsIcon /> },
           { path: '/softphone-settings', label: 'Softphone Ayarları', icon: <DialerIcon /> },
           { path: '/logs', label: 'Loglar', icon: <TerminalIcon /> },
+          { path: '/fct-ports', label: 'FCT Gateway', icon: <SimCardIcon /> },
           { path: '/asterisk', label: 'Asterisk Durum', icon: <RouterIcon /> },
         ]
       : []),

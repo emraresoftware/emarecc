@@ -36,23 +36,25 @@
 - **Bull Queue** (background jobs - transkripsiyon, email)
 
 ### VoIP
-- **Asterisk 20+** (PBX engine)
-- **AMI (Asterisk Manager Interface)** (Node.js bridge)
-- **PJSIP** (SIP channels)
+- **Asterisk 22.8.2** (PBX engine, Docker: `andrius/asterisk:latest`)
+- **AMI (Asterisk Manager Interface)** (Node.js `asterisk-manager` + auto-reconnect)
+- **PJSIP** (SIP channels, WebRTC endpoints)
+- **SIP.js 0.21.1** (`Web.SimpleUser` — WebRTC softphone)
 - **CDR (Call Detail Records)**
 - **MixMonitor** (call recording)
+- **GoIP16 FCT Gateway** (GSM ↔ SIP trunk)
 
 ### Frontend
-- **React 18**
-- **TailwindCSS**
-- **Zustand** (state management)
+- **React 18** + **Vite**
+- **Material UI (MUI)** (component library)
+- **SIP.js** (`Web.SimpleUser` — WebRTC SIP client)
+- **React Context** (AuthContext, SipContext, SocketContext)
 - **Socket.IO** (WebSocket - wallboard real-time)
-- **React Hook Form** (form validation)
 
 ### DevOps
 - **Docker Compose** (multi-container orchestration)
-- **Nginx** (reverse proxy)
-- **PM2** (process manager - optional)
+- **Nginx** (reverse proxy, SSL termination, WSS proxy)
+- **TZ=Europe/Istanbul** (tüm container'larda timezone)
 
 ### Proje Yapısı
 ```
@@ -135,41 +137,46 @@ docker compose exec backend npm run migrate
 
 ## 📞 Çağrı Akışı
 
-### 1. Gelen Çağrı (Inbound)
+### 1. Gelen Çağrı (Inbound) — GSM → WebRTC
 ```
-Müşteri arar → Asterisk (DID: 555-1234)
+GSM araması → GoIP16 (Line 1, Vodafone TR)
   ↓
-Kuyruk: cc-support
+GoIP16 SIP INVITE → Asterisk (fct-trunk, from-pstn context)
   ↓
-Agent dahilileri çalar (1000, 1001, 1002, 1003)
+Dialplan: Ringing() → 180 Ringing GoIP16'ya gönderilir
   ↓
-İlk açan ajan görüşmeyi alır
+Queue(cc-support,t,,,60) → PJSIP/1000 çağrılır
   ↓
-Backend: AMI eventi yakalar (NewCallerid)
+Asterisk → WebSocket üzerinden INVITE → SIP.js (browser)
   ↓
-Frontend: Screen Pop açılır (CallerID → müşteri bilgisi)
+SipContext.jsx: onCallReceived → session.progress(180)
   ↓
-Ajan görüşür, disposition kodu girer
+SipIncomingModal açılır (ringtone + CallerID + Cevapla/Reddet)
   ↓
-CDR kaydedilir + ses kaydı + transkripsiyon (background job)
+Agent "Cevapla" → session.accept() → RTP/SRTP akışı başlar
+  ↓
+Backend: AMI eventi ile call DB kaydı oluşturulur
+  ↓
+CDR kaydedilir + ses kaydı (MixMonitor)
 ```
 
-### 2. Giden Çağrı (Outbound - Click-to-Call)
+### 2. Giden Çağrı (Outbound — WebRTC Direct)
 ```
-Ajan: Müşteri detay sayfasında "Ara" butonuna tıklar
+Agent: Softphone'da numara girer veya müşteri detaydan "Ara" tıklar
   ↓
-Frontend: API call → POST /api/calls/originate
+SipContext.jsx: call(numara) → SIP.js INVITE gönderir
   ↓
-Backend: AMI Originate komutu
+Browser → WebSocket → Asterisk (PJSIP/1000)
   ↓
-Asterisk: Önce ajan dahilini arar (1001)
+Asterisk dialplan [from-internal]: _9. pattern match
   ↓
-Ajan açar → Asterisk müşteri numarasını arar
+Dial(PJSIP/${DST}@fct-trunk,30) → GoIP16 → GSM
   ↓
-Bridge (ajan ↔ müşteri)
+GSM hattı çalar → Karşı taraf açar → Bridge
   ↓
-CDR kaydedilir
+CDR kaydedilir + ses kaydı
 ```
+⚠️ **Not:** Outbound artık AMI Originate DEĞİL, WebRTC Direct SIP INVITE kullanıyor. Browser doğrudan Asterisk'e SIP INVITE gönderiyor.
 
 ### 3. Preview Dialer
 ```
@@ -179,7 +186,7 @@ Backend: Kampanyadan sıradaki borçlu numarayı seç
   ↓
 Screen'de müşteri bilgisi + tahsilat scripti göster
   ↓
-Ajan "Ara" derse → Click-to-Call akışı
+Ajan "Ara" derse → WebRTC Direct akışı (Outbound #2)
   ↓
 Disposition: Arandı/Ulaşılamadı/Ödeme Sözü/vb.
 ```
@@ -273,19 +280,59 @@ Disposition: Arandı/Ulaşılamadı/Ödeme Sözü/vb.
 - **HTTPS/TLS:** Nginx reverse proxy
 - **Database:** Encrypted connections, prepared statements (SQL injection koruması)
 
-## 📚 Asterisk Konfigürasyon
+## 📚 Asterisk Konfigürasyon (Güncel — 8 Mart 2026)
 
 ### extensions.conf (Dial Plan)
 ```conf
-[from-external]
-exten => s,1,NoOp(Incoming call from ${CALLERID(num)})
-same => n,Queue(cc-support,t,,,30)
+[from-pstn]   ; GoIP16'dan gelen çağrılar
+exten => s,1,NoOp(Gelen arama: ${CALLERID(num)})
+same => n,Set(CALLERID(name)=${CALLERID(num)})
+same => n,Ringing()                              ; ← GoIP16'ya 180 gönder (KRİTİK)
+same => n,Queue(cc-support,t,,,60)
 same => n,Hangup()
 
-[from-internal]
-exten => _NXXNXXXXXX,1,NoOp(Outbound call to ${EXTEN})
-same => n,Dial(PJSIP/${EXTEN}@trunk)
+[from-internal]  ; Agent'tan giden çağrılar (WebRTC Direct)
+exten => _9.,1,NoOp(Outbound call to ${EXTEN:1})
+same => n,Set(DST=${EXTEN:1})
+same => n,Dial(PJSIP/${DST}@fct-trunk,30)
 same => n,Hangup()
+```
+
+### pjsip.conf — Transport (KRİTİK Ayarlar)
+```ini
+[transport-wss]
+type=transport
+protocol=wss
+bind=0.0.0.0:8089
+cert_file=/etc/asterisk/keys/asterisk.crt
+priv_key_file=/etc/asterisk/keys/asterisk.key
+external_media_address=192.168.1.64      ; ← Host IP (KRİTİK)
+external_signaling_address=192.168.1.64  ; ← Host IP (KRİTİK)
+local_net=172.19.0.0/16
+local_net=127.0.0.0/8
+
+[transport-ws]
+type=transport
+protocol=ws
+bind=0.0.0.0:8088
+external_media_address=192.168.1.64
+external_signaling_address=192.168.1.64
+local_net=172.19.0.0/16
+local_net=127.0.0.0/8
+```
+
+### pjsip.conf — WebRTC Endpoint
+```ini
+[1000]
+type=endpoint
+context=from-internal
+aors=1000
+auth=auth-1000
+webrtc=yes
+dtls_auto_generate_cert=yes
+ice_support=yes
+media_encryption=dtls
+qualify_frequency=0              ; ← OPTIONS ping KAPALI (SIP.js uyumsuzluğu)
 ```
 
 ### queues.conf
@@ -295,16 +342,92 @@ strategy = ringall
 timeout = 30
 retry = 5
 member => PJSIP/1000
-member => PJSIP/1001
-member => PJSIP/1002
-member => PJSIP/1003
+```
+
+### manager.conf
+```conf
+[admin]
+secret = admin         ; ← docker-compose.yml AMI_SECRET ile eşleşmeli
+read = all
+write = all
+```
+
+## � FCT Gateway (GoIP16)
+
+### Donanım
+- **Cihaz:** GoIP16 (16-port GSM Gateway)
+- **Firmware:** GST-1.01-68, Module: G610_V0C.58.0D_T1B
+- **Yerel IP:** 192.168.1.100 (Web panel: admin/admin)
+- **SN:** GOIP16E1BTR13083591
+- **Mod:** Trunk Gateway Mode
+
+### SIM Durumu
+- **Sadece Line 1'de SIM var** (Line 2-16 boş, modüller kapalı)
+- **Operatör:** Vodafone TR
+- **IMSI:** 286027349289894
+- **ICCID:** 8990029222024133507
+- **Sinyal:** ~20 (orta)
+
+### Asterisk ↔ GoIP16 Bağlantısı
+- **Trunk tipi:** PJSIP (`fct-trunk`)
+- **Asterisk IP:** 192.168.1.64 (host) / 172.19.0.6 (Docker container)
+- **Docker NAT IP:** 149.34.200.122 (GoIP trafiği Asterisk'e bu IP'den gelir)
+- **Kayıt:** REGISTER 200 OK, Contacts Reachable (~10ms RTT)
+- **Dialplan:** `[from-internal]` → `_9.` pattern → `PJSIP/${DST}@fct-trunk` (prefix yok)
+- **Test:** ✅ Asterisk → GoIP16 → GSM çalışıyor (7 Mart 2026 doğrulandı)
+
+### Çözülen Sorunlar (5-7 Mart 2026)
+1. GoIP16'da sip_registrar 78.47.33.186 (eski sunucu) → 192.168.1.64 yapıldı
+2. AOR ismi uyumsuzluğu (`fct-aor` vs `fct-trunk`) → `fct-trunk` olarak düzeltildi
+3. Docker NAT sorunu → `external_signaling/media_address=192.168.1.64` eklendi
+4. identify match → `149.34.200.122` eklendi
+5. Dialplan `G3687P07` prefix → kaldırıldı (Trunk GW Mode prefix istemez)
+6. sip_relay_server eski IP → temizlendi
+
+### Çözülen Sorunlar (8 Mart 2026)
+7. Hangup butonu stale closure → `stateRef` pattern ile çözüldü
+8. Hangup fix sonrası çağrı regresyonu → `isConnected()` + `qualify_frequency=0`
+9. Rate limit 429 → `max:3000`, `/debug/*` muaf
+10. AMI auto-reconnect → exponential backoff (2s→30s max)
+11. **⚠️ Docker container ID SIP.js parse hatası** → `hostname: asterisk.local` (DETAY: docs/SORUNLAR.md #14)
+12. Nginx cache → `no-cache` header for index.html
+13. Ringing() → extensions.conf'ta Queue() öncesine eklendi
+14. **Tek yönlü ses** → `rtp.conf` oluşturuldu (10000-10050), Docker port mapping eşleştirildi ✅ (9 Mart 2026 doğrulandı)
+
+## ⚠️ KRİTİK KURALLAR — ASLA BOZMA
+
+Bu kurallar ihlal edilirse sistem sessizce çöker ve hata bulmak saatler/günler alır:
+
+| # | Kural | Dosya | Ne Olur Bozulursa |
+|---|-------|-------|-------------------|
+| 1 | `hostname: asterisk.local` | docker-compose.yml | SIP.js TÜM gelen çağrıları sessizce reddeder (hata mesajı YOK) |
+| 2 | `external_media/signaling_address` | pjsip.conf | WebRTC medya akışı kopuk, tek yönlü ses |
+| 3 | `Ringing()` Queue öncesi | extensions.conf | GoIP16 timeout yapar, aramalara cevap verilemez |
+| 4 | `qualify_frequency=0` (1000) | pjsip.conf | SIP.js OPTIONS mesajlarını yanlış yorumlar |
+| 5 | `AMI_SECRET` = manager.conf secret | docker-compose.yml | AMI bağlantısı başarısız, çağrı yönetimi çalışmaz |
+| 6 | `TZ=Europe/Istanbul` | docker-compose.yml | CDR zamanları yanlış |
+| 7 | `rtp.conf` port = Docker UDP mapping | rtp.conf + docker-compose.yml | Tek yönlü ses (telefon→bilgisayar ses gelmez) |
+
+## 🔍 Docker Hostname Detayı (En Kritik Bug)
+
+Docker container'a hostname verilmezse container ID (ör: `906da5a2be30`) hostname olarak kullanılır.
+Bu ID, Asterisk SIP mesajlarının From/Contact header'larında yer alır.
+RFC 3261'e göre hostname rakamla başlayamaz.
+SIP.js Grammar parser bu URI'leri parse edemez → `-1` döner → mesajı sessizce düşürür.
+**SONUÇ:** Hiçbir hata veya log olmadan tüm gelen çağrılar reddedilir.
+
+**Test:**
+```bash
+docker compose exec asterisk hostname  # "asterisk.local" dönmeli, ASLA hex ID dönmemeli
 ```
 
 ## 🔄 Son Güncelleme
 
-**Tarih:** 4 Mart 2026  
-**Durum:** MVP tamamlandı, production test aşaması  
-**Next Action:** Predictive dialer, multi-tenant support
+**Tarih:** 9 Mart 2026  
+**Durum:** ✅ TÜM SES SORUNLARI ÇÖZÜLDÜ — Çift yönlü ses doğrulandı (WebRTC ↔ GSM). FCT gateway stabil, tüm kritik buglar çözüldü.  
+**Çözülen Kritik Sorunlar:** Docker hostname (SIP.js parse), hangup stale closure, AMI reconnect, rate limit, Nginx cache, **tek yönlü ses (RTP port fix)**  
+**Mühürlenen Ayarlar:** rtp.conf (10000-10050), docker-compose.yml (UDP 10000-10050), hostname: asterisk.local, external_media/signaling_address, Ringing(), qualify_frequency=0  
+**Next Action:** Predictive dialer, multi-tenant support, AI transkripsiyon
 
 ---
 

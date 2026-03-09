@@ -45,6 +45,7 @@ export const initiateCallSchema = z.object({
   external_id: z.string().optional(),
   external_type: z.string().optional(),
   callback_url: z.string().optional().refine((v) => !v || v.startsWith('http'), 'Invalid URL'),
+  webrtc_direct: z.boolean().optional(),
 });
 
 export const customerSchema = z.object({

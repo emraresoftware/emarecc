@@ -1,6 +1,6 @@
 # Cursor Kapanma / Donma Önleme Rehberi
 
-Cursor'un ağır projelerde kapanmasını veya donmasını azaltmak için yapılan ayarlar.
+Cursor’un ağır projelerde kapanmasını veya donmasını azaltmak için yapılan ayarlar.
 
 ---
 
@@ -18,22 +18,14 @@ Bu dosya projede mevcutsa Cursor açılışta bu ayarları kullanır.
 
 ## 2. `.cursorignore`
 
-Cursor'un indekslemeyeceği (ve aramaya dahil etmeyeceği) yollar. **Proje kökünde `.cursorignore` dosyası oluşturup** şu satırları ekleyin:
+Cursor’un indekslemeyeceği (ve aramaya dahil etmeyeceği) yollar:
 
-```
-data/
-uploads/
-recordings/
-**/node_modules/
-**/venv/
-**/scripts/local_llm/
-**/artifacts/
-*.log
-**/dist/
-**/.git/
-```
+- `data/`, `uploads/`, `recordings/`
+- `**/node_modules/`, `**/venv/`
+- `**/scripts/local_llm/`, `**/artifacts/`
+- `*.log`, `**/dist/`, `**/.git/`
 
-*(Bazı ortamlarda bu dosya otomatik oluşturulamayabilir; elle eklemeniz gerekir.)*
+Bu sayede büyük ve gereksiz klasörler Cursor tarafından taranmaz.
 
 ---
 
@@ -42,7 +34,7 @@ recordings/
 - **Dosya:** `cagri-merkezi-hafif.code-workspace`
 - **Açılış:** **File → Open Workspace from File** → bu dosyayı seçin.
 
-Bu workspace'te ağır klasörler Explorer'da gizlenir; Cursor daha az yüklenir.
+Bu workspace’te ağır klasörler Explorer’da gizlenir; Cursor daha az yüklenir.
 
 *(Başka projede kullanmak için bu dosyayı kopyalayıp adını değiştirebilirsiniz, örn. `asistan-hafif.code-workspace`.)*
 
@@ -58,6 +50,6 @@ Bu workspace'te ağır klasörler Explorer'da gizlenir; Cursor daha az yüklenir
 ## 5. Özet – en etkili iki adım
 
 1. **`cagri-merkezi-hafif.code-workspace`** ile projeyi açmak.
-2. **Agent Autocomplete**'i kapatmak.
+2. **Agent Autocomplete**’i kapatmak.
 
 Bu iki adım genelde kapanma ve donmaları belirgin şekilde azaltır.
